@@ -1,0 +1,74 @@
+<zk>
+<div id="cities">
+<style>
+.z-window {
+border: none;
+}
+.z-listheader {
+    background: #f57f20;
+    border-left: none;
+    border-bottom: none;
+    }
+    .z-window-header {
+    color: rgb(245, 127, 32);
+    }
+    .z-button{
+background-color:#f57f20;
+}
+.medium {
+	font-size: 15px;
+	padding: .3em 1.5em .42em;
+}
+</style>
+</div>
+<window id="win" title="CITIES" border="normal" use="com.pennantExamination.controller.CityController">
+	
+	<hlayout style="margin-right:-1000px;">
+		<button label="Add City" sclass="medium" iconSclass="z-icon-plus" style="float:right" id="AddCity"
+	onClick="win.showModal()"/>
+	</hlayout>
+	<separator bar="true"/>
+	<listbox id="cityListBox" model="${win$composer.city}" >
+		<listhead sizable="true">
+			<listheader align="center" width="80px"
+				label="City Id"/>
+			<listheader align="center" label="City Name" sort="auto" />
+			<listheader align="center" label="Enabled"/>
+			<listheader label="Edit" />
+			<listheader label="Delete" />
+		</listhead>
+		<template name="model">
+		<listitem height="28px">
+			<listcell label="${each.cityId}"/>
+			<listcell label="${each.cityName}"/>
+			<listcell label="${each.enabled}"/>
+			<listcell
+			 	iconSclass="z-icon-edit" id="${each.cityId}" onClick="win.cityUpdate(self.getId())">
+			</listcell>
+			<listcell iconSclass="z-icon-trash-o" id="w${each.cityId}" onClick="cityDelete(self.getId())" />
+		</listitem>
+		</template>
+	</listbox>
+	<zscript>
+   <![CDATA[
+            public void cityDelete(String s){
+            	String id=s;
+            Messagebox.show("Are you sure you want to delete?", "Confirm Dialog", Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION, new org.zkoss.zk.ui.event.EventListener()
+						{
+   								 public void onEvent(Event evt) throws InterruptedException
+   								 {
+       										 if (evt.getName().equals("onOK"))
+       										 {
+       											 win.delete(s);
+       										 } 
+        									 else 
+        									 {
+           										 alert("Delete Canceled !");
+       										 }
+   								 }
+						});
+            }
+	]]>
+   </zscript>
+</window>
+</zk>

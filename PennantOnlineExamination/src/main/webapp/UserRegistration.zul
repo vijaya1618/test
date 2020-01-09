@@ -1,0 +1,150 @@
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ca="client/attribute"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<window id="registrIn" border="none"  
+	       use="com.pennantExamination.controller.RegistrationCtrl"
+		>
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+ .z-row-content{
+ line-height: 0em;
+ padding: 4px 16px;
+ }
+.z-button {
+background-color: #f57f20;
+}
+
+</style>
+  <!--   <style src="/widgets/input/form_sample/style.css" /> -->
+    <hlayout>
+    <div>
+    	<vlayout>
+    	<html>
+			<img src="pennant logo.png" width="200px" height="200px" />
+		</html>
+		<image src="books.jpg" style="width:845px;"/>
+		</vlayout>
+	</div>
+	<div>
+        <grid >
+            <columns>
+                <column label="Registration" width="120px" />
+                <column />                
+            </columns>
+            <rows>
+                <row>
+                Fullname:
+                    <hlayout>
+                        <textbox tabindex="1" id="fullName" sclass="blue" constraint="no empty"/>
+                    </hlayout>
+                </row>
+                <row>
+                Username:
+                    <hlayout>
+                        <textbox tabindex="2" id="userName" sclass="blue" constraint="no empty"/>
+                    </hlayout>
+                 
+                </row>
+              
+                <row>
+                    Password:
+                    <textbox type="password" tooltiptext="Password must include uppercase, lowercase, number and special character and should exceed 8 characters " tabindex="3"  id="password" sclass="blue" constraint="no empty"/>
+                </row>
+                 <row>
+                    Confirm Password:
+                    <textbox type="password" tabindex="4"  id="re_typepassword" sclass="blue" constraint="no empty"/>
+                </row>
+                <row>
+                    E-mail:
+                        <textbox type="email" tabindex="5" id="email" sclass="blue" 
+                        constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address"/> 
+                </row>
+                 <row>
+                    Phone:
+                    <textbox maxlength="10" tabindex="6" id="phoneNo" sclass="blue" constraint="no empty"/>
+                </row>
+                 <row>
+                    Gender:
+                    <radiogroup id="gender" tabindex="7" >
+                    <radio id="Male" label="Male" name="Male" value="Male" radiogroup="gender" iconSclass="z-icon-male" />
+                    <radio id="Female" label="Female" name="Female" value="Female" radiogroup="gender" iconSclass="z-icon-female"/>
+                     </radiogroup>
+                </row>
+                <row>
+                    DOB:
+                    <hbox>
+                        <datebox tabindex="8" id="dob" sclass="blue" constraint="no empty"/>
+                    </hbox>
+                </row>
+                 <row>
+                 Year of Passing:
+                 <combobox tabindex="9" id="yop" sclass="blue" constraint="no empty">
+                 		<comboitem label="2017" value="2017"/>
+                 		<comboitem label="2018" value="2018"/>
+                 		<comboitem label="2019" value="2019"/>
+                 		<comboitem label="2020" value="2020"/>
+                 		<comboitem label="2021" value="2021"/>
+                 </combobox>
+                </row>
+               <row>
+                Course:
+                 <combobox tabindex="10" id="course" sclass="blue" constraint="no empty">
+                 		<comboitem label="B.tech" value="B.tech"/>
+                 		<comboitem label="M.tech" value="M.tech"/>
+                 		<comboitem label="MCA" value="MCA"/>
+                 		<comboitem label="BSC" value="BSC"/>
+                 </combobox>
+                </row>
+                <row>
+                Specialization:
+                 <combobox tabindex="11" id="specialization" sclass="blue" constraint="no empty">
+                 		<comboitem label="ECE" value="ECE"/>
+                 		<comboitem label="CSE" value="CSE"/>
+                 		<comboitem label="EEE" value="EEE"/>
+                 		<comboitem label="MECH" value="MECH"/>
+                 </combobox>
+                </row>
+                <row>
+                Colleges:
+                <combobox tabindex="12" id="college" model="${registrIn$composer.collegeList}" sclass="blue" constraint="no empty">
+                 <template name="model">
+                 		<comboitem label="${each.collegeName}" value="${each.collegeName}"/>
+                 		
+                 		</template>
+                 </combobox>
+                </row>
+                <row>
+                 Resume:
+                    <button tabindex="13" id="resume" label="Upload file" onClick="registrIn.fileUpload()" />
+                </row>
+                 <row>
+                  Address:
+                  <textbox width="370px;" tabindex="14" id="address" sclass="blue" constraint="no empty"/>
+                 </row>
+                 <row>
+                    Aadhaar:
+                    <textbox maxlength="12" tabindex="15" id="aadhar" sclass="blue" constraint="no empty"/>
+                </row>
+                 <row>
+                 <cell colspan="2" width="120px">
+                	<button tabindex="16" label="Submit" id="registrationSubmit" onClick="registrIn.registerUser()"/>
+                </cell>
+                </row>
+              </rows>
+        </grid>
+        
+   </div>
+   </hlayout>
+   </window>
+</zk>

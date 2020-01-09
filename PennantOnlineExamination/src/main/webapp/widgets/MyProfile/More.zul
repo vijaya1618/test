@@ -1,0 +1,107 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div align="center" style="overflow:auto;">
+<window border="normal" >
+<html><![CDATA[
+    <style>           
+          .word
+          {
+        	  color:#eb7022;
+          }
+    </style>
+    <table>
+   		<tr>
+   			<td colspan="2" style="font-size:24px;">Strength in achieving the right balance of,</td>
+   		</tr>
+   		<tr>
+   			<td class="word" style="font-size:24px; padding-left:25px;">A</td><td style="padding-right:200px;">dding business value</td>
+   		</tr>
+   		<tr>
+   			<td class="word" style="font-size:24px; padding-left:25px;">C</td><td style="padding-right:200px;">ost optimization</td>
+   		</tr>
+   		<tr>
+   			<td class="word" style="font-size:24px; padding-left:25px;">T</td><td style="padding-right:400px;">ime to market acceleration</td>
+   		</tr>
+    </table>
+        
+               
+               ]]></html>
+<div>
+
+<image src="ACT.png" style="margin-left:200px;"/>
+</div>
+<html><![CDATA[ 
+               <style>           
+               .word
+               {
+             	  color:#eb7022;
+               }
+         </style>
+       
+               
+               <p>
+               Pennant by definition signifies long, tapering, usually triangular flag, A flag that symbolizes the championship of aleague,true to its belief and definition, we at Pennant always focus on 
+       delivering technology driven, yet cost effective business capabilities to our clients, empowering them to become more agile and responsive to the ever changing business landscapes, thus stay 
+       ahead and become true champions in their league.<br><br>
+        And to achieve these client centric objectives, Pennant has coined the slogan – ACT [Add business value,Cost optimization and Time to market acceleration] – Thus, together, ACT characterizes and encompasses 
+       the fundamental factors to the way we engage with our clients, for, ACT is the key and critical business drivers for any organization to grow and become profitable ventures. We believe in walking that extra mile 
+       with an abiding passion and unwavering commitment to place our clients' business first. Pennant defines designs and delivers world class enterprise level business applications to renowned global business 
+       conglomerates cutting across continents around the globe.
+        
+       </p>
+        
+    <h1 class="word">
+      The Vision
+      </h1>
+      <p>
+      We envision leveraging state of the art, ever evolving technologies, exploring latent talents, harmonizing 
+      critical systems, building path breaking, decisive business solutions, adding value and delivering quality 
+      results to our clients. Internally, the vision is to foster a work environment that nurtures talent, empowers 
+      people and rewards performances.
+      </p>
+      
+      <h1 class="word">
+      The Mission
+      </h1>
+      <p>
+      To study, understand, analyze the complex businesses of our clients, design, deploy right fit and next 
+      generation solutions by continuous improvement of process framework that adds value, reduces costs & 
+      risks, increase productivity, improves efficiency and ensures continuous, durable business growth and 
+      enduring success.
+      </p>
+      
+      <h1 class="word">
+      The Core Competency
+      </h1>
+      <p>
+      Positioning our clients' first is embedded in Pennant's culture, thus it is in our DNA. Our Core Competency 
+      lies in investing in our people and resources, we bring new, out-of-box ideas and innovation to help you 
+      succeed in a changing business environment. We continuously keep investing in People, Processes and 
+      Technology to bring in a sense of synchronized harmony and to be - future ready.<br>
+      Pennant always adopts a sustainable approach to build Core Competencies in rich, varied and myriad 
+      domain expertise. We are conscious of the fact that growth is inextricably linked to the well-being of our 
+      ecosystem – our customers, employees, business partners, and environment.
+      <h1 class="word">
+      The Offerings – An overview
+      </h1>
+      <p>
+      The way businesses work and deliver value has never been more dynamic. Companies around the world 
+      are constantly exploring options on how to improve efficiency, add value to their customers and stay ahead 
+      from their competitors. To prepare for the future, organizations are also rethinking how to define, deploy, 
+      source, and manage their technology and business services. We provide forward-thinking companies with 
+      out-of-box solutions and perspectives that help them navigate through existing challenges, tap exciting and 
+      new opportunities.
+      <br>
+      </p>
+      
+      <h1  align = "center"  style="font-size:50px" class="word" >
+      Conquer your business challenges with our offerings
+      </h1>
+      
+    	  
+               
+               ]]></html>
+              
+</window>
+ </div>
+</zk>

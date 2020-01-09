@@ -1,0 +1,96 @@
+<zk>
+<window closable="true" id="addTestPapersWin" use="com.pennantExamination.controller.AddTestPapersController">
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: center;
+}
+.wrapperr {
+    text-align: start;
+}
+</style>
+	<hlayout>
+		
+		<div>
+			<grid id="addTestPapersgrid" width="750px">
+				<columns>
+					<column label="Add Test Question" width="190px" />
+					<column />
+				</columns>
+				<rows>
+					    
+					<row>
+						Question:
+						<hlayout>
+							<textbox tabindex="1" id="addQuestion"  rows="3" width="300px"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Option A:
+						<hlayout>
+							<textbox tabindex="2" id="addOptionA"
+								sclass="blue" />
+						</hlayout>
+
+					</row>
+
+					<row>
+						Option B:
+						<textbox tabindex="3" id="addOptionB" sclass="blue" />
+					</row>
+					<row>
+						Option C:
+						<textbox tabindex="4" id="addOptionC" sclass="blue" />
+					</row>
+					<row>
+						Option D:
+						<textbox tabindex="5" id="addOptionD" sclass="blue" />
+					</row>
+					<row>
+						Correct Option:
+						<hbox>
+							<textbox tabindex="6" id="addCorrectAnswer"
+								sclass="blue" />
+						</hbox>
+					</row>
+					<row>
+						Question Type:
+						<combobox tabindex="7" id="addQsnType" 
+						model="${addTestPapersWin$composer.testSegmentList}"
+						 sclass="blue">
+							<template name="model">
+                 				<comboitem label="${each.testsegmentName}" value="${each.testsegmentName}"/>
+                 			</template>
+						</combobox>
+					</row>
+					<row>
+						Set Id:
+						<intbox tabindex="8" id="addSetId"
+							sclass="blue" />
+					</row>
+				    <row>
+						<cell class="wrapper" colspan="1" >
+							<button label="Add" id="addSubmit" onClick="addTestPapersWin.insertTestQuestions()"/>
+						</cell>
+						<cell class="wrapperr" colspan="1">
+							<button label="Close" id="addTestPapersClose" onClick="addTestPapersWin.detach()"/>	
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</div>
+	</hlayout>
+	</window>
+</zk>

@@ -1,0 +1,152 @@
+<zk>
+   <div>
+    <style>
+        .complex-layout {
+            background-image:url('img9.jpg');
+background-size: cover;
+        }
+        
+        
+      .z-north, .z-north-collapsed, .z-north-splitter {
+           background: transparent;
+       }
+       .z-west-splitter{
+       background: transparent;
+       }
+       .z-west{
+       background: transparent;
+       }
+       .z-center{
+       background: transparent;
+       }
+       .inner-border {
+       background: none;
+       }
+       .z-navbar ul {
+       background: #f57f20;
+       }
+       .z-north-body{
+       color: rgb(245, 127, 32);
+       }
+       .z-north, .z-south, .z-west, .z-center, .z-east {
+       border:none;
+       }
+       .z-navbar {
+       border-top: none;
+    border-bottom: none;
+    }
+    .z-tabbox {
+    background: none;
+    }
+    .z-tabs {
+    background: none;
+    }
+    .z-tab {
+    background: #f7f4f4;
+    }
+    .z-window {
+     background: none;
+    }
+.z-window-content {
+ background: none;
+    }
+    .z-tabbox {
+    border:none;
+       }
+.z-tab-text {
+color: rgb(245, 127, 32);
+}
+.z-tab-selected .z-tab-text {
+color: #38161a;
+}
+.z-tabbox-left>.z-tabpanels {
+border-left: none;
+}
+    </style>
+    <div>
+<menubar id="menubar" width="10%" style="float:right;margin-top:-73px">
+	
+  <menu label="Admin" iconSclass="z-icon-user fa-5x" style="font-size:30px;">
+                    <menupopup>
+                        <menuitem label="Logout" href="index.zul"  />
+                    </menupopup>
+                </menu>
+</menubar>
+</div>
+       <borderlayout sclass="complex-layout" height="756px">
+            <north size="70px" border="0">
+               
+                   
+                   <image src="pennant logo.png" width="120px" height="70px" style="margin-top:-15px" />
+                <!-- <div width="380px" style="float:right;margin-top:-73px">
+				<menubar id="menubar" >
+					
+				  <menu label="Admin" iconSclass="z-icon-user fa-5x" style="font-size:30px;">
+				                    <menupopup>
+				                        <menuitem label="Logout" href="index.zul"  />
+				                    </menupopup>
+				                </menu>
+				</menubar>
+				</div> -->
+				
+            </north>
+             <!-- Sidebar -->
+            <!-- <west  border="0" flex="true" splittable="true">
+                <navbar orient="vertical" width="220px">
+    
+				    <nav label="Master Entry"  iconSclass="z-icon-th-list">
+				        <navitem label="Cities" />
+				        <navitem label="Colleges" />
+				        <navitem label="Degrees" />
+				        <navitem label="Specializations" />
+				        <navitem label="Test Segments" />
+				    </nav>
+				    <nav label="Examinee Entry" iconSclass="z-icon-th-list" >
+				        <navitem label="Examinee" />
+				        <navitem label="Examinee Results" />
+				        <navitem label="Sets" />
+				        <navitem label="Test Papers" />
+				    </nav>
+              </navbar>
+            </west> -->
+             <!-- Content -->
+            <center>
+               <borderlayout sclass="inner-border">
+                    <!-- <north border="0" height="43px" margins="2,3,0,0">
+                        <label value="Welcome To Pennant Online Examination Portal." style="font-size:20px;" />
+                    </north> -->
+                    <center>
+                   <tabbox id="tb" height="700px" orient="vertical">
+    <tabs id="tabs" width="250px">
+        <tab id="A" label="Cities" />
+        <tab id="B" label="Colleges" />
+        <tab id="C" label="Degrees" />
+        <tab id="D" label="Specializations" />
+        <tab id="E" label="Test Segments" />
+        <tab id="f" label="Examinee" />
+        <tab id="g" label="Examinee Results" />
+        <tab id="h" label="Sets" />
+        <tab id="i" label="Test Papers" />
+        
+    </tabs>
+    <tabpanels>
+        <tabpanel id="DealerInfo">
+                        <include id="citiesContent"
+                            src="cities.zul" />
+                    </tabpanel>
+                    
+    </tabpanels>
+</tabbox>
+                    </center>
+                  
+					
+					
+					</borderlayout>
+					
+				
+				            
+
+            </center>
+       </borderlayout>
+   </div>
+</zk>

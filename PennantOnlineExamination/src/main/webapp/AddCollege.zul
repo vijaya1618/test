@@ -1,0 +1,84 @@
+<zk>
+<window closable="true" id="AddCollegeWin" use="com.pennantExamination.controller.AddCollegeController">
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-body {
+width:px;
+}
+
+.z-hlayout-inner {
+    width: 70%;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: end;
+}
+.wrapperr {
+    text-align: start;
+}
+.button {
+    position: absolute;
+    top: 50%;
+}
+
+</style>
+
+	<hlayout >
+		
+		
+			<grid id="AddCollegegrid" width="1194px">
+				<columns>
+					<column label="Add College Details" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						College Name:
+						<hlayout>
+							<textbox tabindex="2" id="addCollegeName" width="200px"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						City Name:
+						<hlayout>
+							<combobox tabindex="2" id="addCityId" model="${AddCollegeWin$composer.citiesList}" sclass="blue" width="200px" >
+							<template name="model">
+                 		<comboitem label="${each.cityName}" value="${each.cityId}"/>
+                 		</template>
+                 </combobox>
+						</hlayout>
+					</row>
+					<row>
+						Enabled:
+						<hlayout>
+							<checkbox tabindex="2" id="enabled"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						<cell class="wrapper" colspan="2" width="120px">
+							<button label="Add" id="AddSubmit" onClick="AddCollegeWin.insertCollegeDetails()"/>
+						</cell>
+						
+						<cell class="wrapperr" colspan="2" width="120px">
+							<button label="Close" id="editClose" onClick="AddCollegeWin.detach()" />	
+						</cell>
+						<cell></cell>
+					</row>
+				</rows>
+			</grid>
+		
+	</hlayout>
+	</window>
+</zk>

@@ -1,0 +1,74 @@
+<zk>
+<window closable="true" id="AddDegreeWin" use="com.pennantExamination.controller.AddDegreeController" >
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-body {
+width:px;
+}
+
+.z-hlayout-inner {
+    width: 70%;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: end;
+}
+.wrapperr {
+    text-align: start;
+}
+.button {
+    position: absolute;
+    top: 50%;
+}
+
+</style>
+
+	<hlayout >
+		
+		
+			<grid id="AddDegreegrid" width="1194px">
+				<columns>
+					<column label="Add Degree Details" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						Degree Name:
+						<hlayout>
+							<textbox tabindex="2" id="addDegreeName" width="200px"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Enabled:
+						<hlayout>
+							<checkbox tabindex="2" id="enabled"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						<cell class="wrapper" colspan="2" width="120px">
+							<button label="Add" id="AddSubmit" onClick="AddDegreeWin.insertDegreeDetails()"/>
+						</cell>
+						
+						<cell class="wrapperr" colspan="2" width="120px">
+							<button label="Close" id="editClose" onClick="AddDegreeWin.detach()"  />
+						</cell>
+						<cell></cell>
+					</row>
+					</rows>
+			</grid>
+		
+	</hlayout>
+	</window>
+</zk>

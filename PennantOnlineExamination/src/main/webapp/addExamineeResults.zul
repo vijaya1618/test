@@ -1,0 +1,86 @@
+<zk>
+<window closable="true" id="addExamineeResultsWin" use="com.pennantExamination.controller.AddExamineeResultsController" >
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: center;
+}
+.wrapperr {
+    text-align: start;
+}
+</style>
+	<hlayout>
+		<div>
+			<grid id="addExamineeResultsgrid" width="1350px">
+				<columns>
+					<column label="Add Examinee Results" width="200px" />
+					<column />
+				</columns>
+				<rows>
+				 	<row>
+						Examinee ID:
+						<hlayout>
+							<intbox tabindex="1" id="addExamineeId"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Name of Examinee:
+						<hlayout>
+							<textbox tabindex="2" id="addName"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Specialization:
+						<hlayout>
+							<textbox tabindex="3" id="addSpecialization"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Aptitude Score:
+						<hlayout>
+							<intbox tabindex="4" id="addAptitudeScore"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Technical Score:
+						<hlayout>
+							<intbox tabindex="5" id="addTechnicalScore"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Total Score:
+						<hlayout>
+							<intbox tabindex="6" id="addTotalScore"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						<cell class="wrapper" colspan="1" >
+							<button label="Add" id="addSubmit" onClick="addExamineeResultsWin.insertExamineeResults()" />
+						</cell>
+						<cell class="wrapperr" colspan="1">
+							<button label="Close" id="addExamineeResultsClose" onClick="addExamineeResultsWin.detach()" />	
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</div>
+	</hlayout>
+</window>
+</zk>

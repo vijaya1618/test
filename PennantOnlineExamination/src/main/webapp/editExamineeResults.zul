@@ -1,0 +1,86 @@
+<zk>
+<window closable="true" id="editExamineeResultsWin" use="com.pennantExamination.controller.EditExamineeResultsController">
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: center;
+}
+.wrapperr {
+    text-align: start;
+}
+</style>
+	<hlayout>
+		<div>
+			<grid id="editExamineeResultsgrid" width="750px">
+				<columns>
+					<column label="Edit Examinee Results" width="200px"/>
+					<column />
+				</columns>
+				<rows>
+					<row>
+						Examinee ID:
+						<hlayout>
+							<intbox tabindex="1" id="editExamineeId"
+								sclass="blue" readonly="true"/>
+						</hlayout>
+					</row>
+					<row>
+						Name of Examinee:
+						<hlayout>
+							<textbox tabindex="2" id="editName"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Specialization:
+						<hlayout>
+							<textbox tabindex="3" id="editSpecialization"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Aptitude Score:
+						<hlayout>
+							<intbox tabindex="4" id="editAptitudeScore"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Technical Score:
+						<hlayout>
+							<intbox tabindex="5" id="editTechnicalScore"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Total Score:
+						<hlayout>
+							<intbox tabindex="6" id="editTotalScore"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						<cell class="wrapper" colspan="1" >
+							<button label="Edit" id="editSubmit" onClick="editExamineeResultsWin.onUpdate()" />
+						</cell>
+						<cell class="wrapperr" colspan="1">
+							<button label="Close" id="editExamineeResultsClose" onClick="editExamineeResultsWin.detach()" />	
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</div>
+	</hlayout>
+</window>
+</zk>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN/EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+ 
+<beans>
+<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    <property name="resourceRef" value="true" />
+		<property name="jndiName" value="jdbc/Team6" />
+		<property name="lookupOnStartup" value="true" />
+</bean>
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
+    <property name="dataSource">
+        <ref bean="dataSource"/>
+    </property>
+</bean>
+<bean id="citiDAOTarget" class="com.pennantExamination.DAOImplementation.CityDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="citiDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+        <property name="transactionManager"> 
+            <ref bean="transactionManager"/> 
+        </property> 
+        <property name="target"> 
+            <ref bean="citiDAOTarget"/> 
+        </property> 
+        <property name="transactionAttributes"> 
+            <props> 
+                <prop key="insert*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop> 
+                <prop key="delete*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED, readOnly</prop> 
+            </props> 
+        </property>
+    </bean>
+     <bean id="collegeDAOTarget" class="com.pennantExamination.DAOImplementation.CollegeDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+    <bean id="collegeDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+        <property name="transactionManager"> 
+            <ref bean="transactionManager"/> 
+        </property> 
+        <property name="target"> 
+            <ref bean="collegeDAOTarget"/> 
+        </property> 
+        <property name="transactionAttributes"> 
+            <props> 
+                <prop key="insert*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop> 
+                <prop key="delete*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED, readOnly</prop> 
+            </props> 
+        </property>
+    </bean>
+    <bean id="degreeDAOTarget" class="com.pennantExamination.DAOImplementation.DegreeDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="degreeDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+        <property name="transactionManager"> 
+            <ref bean="transactionManager"/> 
+        </property> 
+        <property name="target"> 
+            <ref bean="degreeDAOTarget"/> 
+        </property> 
+        <property name="transactionAttributes"> 
+            <props> 
+                <prop key="insert*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop> 
+                <prop key="delete*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED, readOnly</prop> 
+            </props> 
+        </property>
+    </bean>
+    <bean id="specializationDAOTarget" class="com.pennantExamination.DAOImplementation.SpecializationDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+    <bean id="specializationDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+        <property name="transactionManager"> 
+            <ref bean="transactionManager"/> 
+        </property> 
+        <property name="target"> 
+            <ref bean="specializationDAOTarget"/> 
+        </property> 
+        <property name="transactionAttributes"> 
+            <props> 
+                <prop key="insert*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop> 
+                <prop key="delete*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED, readOnly</prop> 
+            </props> 
+        </property>
+    </bean>
+    <bean id="testsegmentDAOTarget" class="com.pennantExamination.DAOImplementation.TestSegmentDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="testsegmentDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+        <property name="transactionManager"> 
+            <ref bean="transactionManager"/> 
+        </property> 
+        <property name="target"> 
+            <ref bean="testsegmentDAOTarget"/> 
+        </property> 
+        <property name="transactionAttributes"> 
+            <props> 
+                <prop key="insert*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop> 
+                <prop key="delete*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED, readOnly</prop> 
+            </props> 
+        </property>
+    </bean>
+    
+
+<bean id="taskDAOTarget" class="com.pennantExamination.DAOImplementation.RegistrationDAOImpl">
+    <property name="dataSource" ref="dataSource" />
+</bean>
+<bean id="logInDAOTarget" class="com.pennantExamination.DAOImplementation.LogInDAOImplementation">
+    <property name="dataSource" ref="dataSource" />
+</bean>
+<bean id="examineeDAO" class="com.pennantExamination.DAOImplementation.ExamineeDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="examDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+        <property name="transactionManager"> 
+            <ref bean="transactionManager"/> 
+        </property> 
+        <property name="target"> 
+            <ref bean="examineeDAO"/> 
+        </property> 
+        <property name="transactionAttributes"> 
+            <props> 
+                <prop key="insert*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop> 
+                <prop key="delete*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED, readOnly</prop> 
+            </props> 
+        </property>
+    </bean>
+    <bean id="OnlineExamDAOTarget" class="com.pennantExamination.DAOImplementation.OnlineExamDAOImpl">
+    <property name="dataSource" ref="dataSource" />
+</bean>
+ 
+	<bean id="onlineExamDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+        <property name="transactionManager"> 
+            <ref bean="transactionManager"/> 
+        </property> 
+        <property name="target"> 
+            <ref bean="OnlineExamDAOTarget"/> 
+        </property> 
+        <property name="transactionAttributes"> 
+            <props> 
+                <prop key="insert*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop> 
+                <prop key="delete*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED, readOnly</prop> 
+            </props> 
+        </property>
+    </bean> 
+ 
+	<bean id="taskDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+        <property name="transactionManager"> 
+            <ref bean="transactionManager"/> 
+        </property> 
+        <property name="target"> 
+            <ref bean="taskDAOTarget"/> 
+        </property> 
+        <property name="transactionAttributes"> 
+            <props> 
+                <prop key="insert*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop> 
+                <prop key="delete*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED, readOnly</prop> 
+            </props> 
+        </property>
+    </bean> 
+    <bean id="logInDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+        <property name="transactionManager"> 
+            <ref bean="transactionManager"/> 
+        </property> 
+        <property name="target"> 
+            <ref bean="logInDAOTarget"/> 
+        </property> 
+        <property name="transactionAttributes"> 
+            <props> 
+                <prop key="insert*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop> 
+                <prop key="delete*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED, readOnly</prop> 
+            </props> 
+        </property>
+    </bean> 
+     <bean id="examineeResultsDAO" class="com.pennantExamination.DAOImplementation.ExamineeResultsDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="examResultsDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+        <property name="transactionManager"> 
+            <ref bean="transactionManager"/> 
+        </property> 
+        <property name="target"> 
+            <ref bean="examineeResultsDAO"/> 
+        </property> 
+        <property name="transactionAttributes"> 
+            <props> 
+                <prop key="insert*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop> 
+                <prop key="delete*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED, readOnly</prop> 
+            </props> 
+        </property>
+    </bean>
+	
+	<bean id="SetsDAO" class="com.pennantExamination.DAOImplementation.SetsDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="setsDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+        <property name="transactionManager"> 
+            <ref bean="transactionManager"/> 
+        </property> 
+        <property name="target"> 
+            <ref bean="SetsDAO"/> 
+        </property> 
+        <property name="transactionAttributes"> 
+            <props> 
+                <prop key="insert*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop> 
+                <prop key="delete*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED, readOnly</prop> 
+            </props> 
+        </property>
+    </bean>
+	
+	<bean id="testpapersDAO" class="com.pennantExamination.DAOImplementation.TestPapersDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="TestPapersDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+        <property name="transactionManager"> 
+            <ref bean="transactionManager"/> 
+        </property> 
+        <property name="target"> 
+            <ref bean="testpapersDAO"/> 
+        </property> 
+        <property name="transactionAttributes"> 
+            <props> 
+                <prop key="insert*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop> 
+                <prop key="delete*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED, ISOLATION_READ_COMMITTED, readOnly</prop> 
+            </props> 
+        </property>
+    </bean>
+    
+  
+</beans>

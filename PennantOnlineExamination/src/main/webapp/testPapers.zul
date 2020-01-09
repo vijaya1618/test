@@ -1,0 +1,101 @@
+<zk>
+<div>
+<style>
+.z-window {
+border: none;
+}
+.z-listheader {
+    background: #f57f20;
+    border-left: none;
+    border-bottom: none;
+    }
+    .z-window-header {
+    color: rgb(245, 127, 32);
+    }
+.z-button{
+background-color:#f57f20;
+}
+.medium {
+	font-size: 15px;
+	padding: .3em 1.5em .42em;
+}
+</style>
+</div>
+<window title="TEST PAPERS" border="normal" id="testPapersWin" use="com.pennantExamination.controller.TestPapersController">
+	<listbox rows="1" mold="select">
+		<listitem label="Question Id"/>
+		<listitem label="Set Id" />
+		<listitem label="Section Id" />
+	</listbox>		
+	<separator></separator>
+	<hlayout style="margin-right:-1000px;">
+		<button  label="Add Question" id="addTestPapers" sclass="medium" iconSclass="z-icon-plus" style="float:right ; margin-left: 1200px" 
+		onClick="testPapersWin.showModal()"/>
+	</hlayout>
+	<separator bar="true"/>
+	<listbox id="testPapersListbox" model="${testPapersWin$composer.testPaperslist}" mold="paging" pageSize="2">
+		<listhead sizable="true">
+			<listheader id="question_id" align="center" 
+				label="Question Id"/>
+			<listheader id="question" align="center"  width="250px" 
+				label="Question" sort="auto" />
+			<listheader id="option_A" align="center"
+				label="Option A"/>
+			<listheader id="option_B" align="center"
+				label="Option B"/>
+			<listheader id="option_C" align="center"
+				label="Option C"/>
+			<listheader id="option_D" align="center"
+				label="Option D"/>	
+			<listheader id="correct_option" align="center" 
+				label="Correct Option"/>
+			<listheader id="section_id" align="center" 
+				label="Section"/>	
+			<listheader id="set_id" align="center" 
+				label="Set Id"/>
+			<listheader id="set_edit" align="center" label="Edit"  />
+			<listheader id="set_delete" align="center" label="Delete"/>
+		</listhead>
+		
+		<template name="model">
+		<listitem height="28px" >
+			<listcell label="${each.questionId}"/>
+			<listcell label="${each.question}"/>
+			<listcell label="${each.optionA}"> </listcell>
+			<listcell label="${each.optionB}"> </listcell> 
+			<listcell label="${each.optionC}"> </listcell>
+			<listcell label="${each.optionD}"> </listcell>
+			<listcell label="${each.correctOption}"> </listcell>
+			<listcell label="${each.questionType}"></listcell>
+			<listcell label="${each.setId}"></listcell>
+			<listcell iconSclass="z-icon-edit" id="${each.questionId}" onClick="testPapersWin.testPapersUpdate(self.getId())"/>
+			<listcell iconSclass="z-icon-trash-o" id="w${each.questionId}" onClick="delete(self.getId())"/>
+		</listitem>
+		</template>
+		</listbox>
+		
+		<zscript>
+   		<![CDATA[
+            public void delete(String s){
+            	String id=s;
+            Messagebox.show("Are you sure you want to delete?", "Confirm Dialog", Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION, new org.zkoss.zk.ui.event.EventListener()
+						{
+   								 public void onEvent(Event evt) throws InterruptedException
+   								 {
+       										 if (evt.getName().equals("onOK"))
+       										 {
+       											testPapersWin.testPapersDelete(s);
+       										 } 
+        									 else 
+        									 {
+           										 alert("Delete Canceled !");
+       										 }
+   								 }
+						});
+            }
+			]]>
+		   </zscript>
+		
+	
+</window>
+</zk>

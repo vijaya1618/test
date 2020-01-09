@@ -1,0 +1,23 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style>
+.p{
+font-family: "verdana";
+}
+</style>
+<div height="100%" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm1') @init('com.pennantExamination.controller.MyProfilePageCntrl')" >
+<borderlayout style="background:transparent;">
+<west style="background:transparent;">
+<navbar orient="vertical" sclass="p" style="background:transparent;">
+<navitem label="Personal Details" onClick="@command('PersonalDetails')"></navitem>
+<navitem label="Educational Details" onClick="@command('EducationPage')"></navitem>
+<navitem label="Technical Details" onClick="@command('TechnicalPage')"></navitem>
+</navbar>
+</west>
+   
+   <center>
+   <include id="myprofilecontent" mode="instant" sclass="content" src="@load(vm1.myProfileMenuPage)" style="background:transparent;"></include>
+   </center>
+</borderlayout>
+</div>
+</zk>

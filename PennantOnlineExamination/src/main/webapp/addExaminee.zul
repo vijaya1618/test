@@ -1,0 +1,156 @@
+<zk>
+<window closable="true" id="addExamineeWin" use="com.pennantExamination.controller.AddExamineeController" >
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-body {
+width:px;
+}
+
+.z-hlayout-inner {
+    width: 70%;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: end;
+}
+.wrapperr {
+    text-align: start;
+}
+.button {
+    position: absolute;
+    top: 50%;
+}
+
+
+</style>
+
+	<hlayout >
+		
+			<div>
+			
+			<grid id="addExamineegrid" width="1350px">
+				<columns>
+					<column label="Add Examinee Details" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						Full Name:
+						<hlayout>
+							<textbox tabindex="1" id="addFullName"
+								sclass="blue" />
+						</hlayout>
+						User Name:
+						<hlayout>
+							<textbox tabindex="2" id="addUserName"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+					    
+						Password:
+						<hlayout>
+						<textbox type="password" tabindex="3" id="addPassword"
+							sclass="blue" />
+						</hlayout>
+						
+						Email:
+						<hlayout>
+						<textbox type="email" tabindex="4" id="addEmail" sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Phone:
+						<longbox maxlength="10" tabindex="5" id="addPhn"
+							sclass="blue" />
+						Gender:
+						<radiogroup id="gender">
+						<radio id="male" label="Male" iconSclass="z-icon-male" radiogroup="gender"/>
+						<radio id="female" label="Female" iconSclass="z-icon-female" radiogroup="gender"/>
+						</radiogroup>
+					</row>
+					<row>
+						DOB:
+						<hbox>
+							<datebox tabindex="6" id="addDOB"
+								sclass="blue" />
+						</hbox>
+					
+						Year of Passing:
+						<combobox tabindex="7" id="addYop" sclass="blue">
+							<comboitem label="2017" value="2017" />
+							<comboitem label="2018" value="2018" />
+							<comboitem label="2019" value="2019" />
+							<comboitem label="2020" value="2020" />
+							<comboitem label="2021" value="2021" />
+						</combobox>
+					</row>
+					<row>
+						Degree:
+						<combobox tabindex="8" id="addCourse"
+							sclass="blue">
+							<comboitem label="B.tech" value="B.tech" />
+							<comboitem label="M.tech" value="M.tech" />
+							<comboitem label="MCA" value="MCA" />
+							<comboitem label="BSC" value="BSC" />
+						</combobox>
+					
+						Specialization:
+						<combobox tabindex="9" id="addSpecialization"
+							sclass="blue">
+							<comboitem label="CSE" value="CSE" />
+							<comboitem label="ECE" value="ECE" />
+							<comboitem label="EEE" value="EEE" />
+							<comboitem label="Mechanical" value="Mech" />
+							<comboitem label="Civil" value="Civil" />
+						</combobox>
+					</row>
+					<row>
+						College:
+						<combobox tabindex="10" id="addCollege"
+							sclass="blue">
+							<comboitem label="Lendi" value="Lendi" />
+							<comboitem label="MVGR" value="MVGR" />
+							<comboitem label="GMR" value="GMR" />
+							<comboitem label="Avanthi" value="Avanthi" />
+							<comboitem label="GVP" value="GVP" />
+						</combobox>
+					
+						Address:
+						<textbox width="250px;" tabindex="11"
+							id="addAddress" sclass="blue" rows="3" />
+					</row>
+					<row>
+						Aadhaar:
+						<longbox constraint="no empty" maxlength="15"
+							tabindex="12" id="addAadhaar" sclass="blue" />
+					
+						Resume:
+						<button label="Upload" id="addResume" onClick="addExamineeWin.fileUpload()"/>
+					</row>
+					<row>
+						<cell class="wrapper" colspan="2" width="120px" >
+							<button label="Add" id="addSubmit" onClick="addExamineeWin.insertExamineeDetails()"/>
+						</cell>
+						
+						<cell class="wrapperr" colspan="2" width="120px" >
+							<button label="Close" id="addExamineeClose" onClick="addExamineeWin.detach()"  />	
+						</cell>
+						<cell></cell>
+					</row>
+				</rows>
+			</grid>
+		 </div>
+	</hlayout>
+	</window>
+</zk>

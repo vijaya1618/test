@@ -1,0 +1,94 @@
+<zk>
+<div>
+<style>
+.z-window {
+border: none;
+}
+.z-listheader {
+    background: #f57f20;
+    border-left: none;
+    border-bottom: none;
+    }
+    .z-window-header {
+    color: rgb(245, 127, 32);
+    }
+
+.z-button{
+background-color:#f57f20;
+}
+.medium {
+	font-size: 15px;
+	padding: .3em 1.5em .42em;
+}
+</style>
+</div>
+<window title="EXAMINEE RESULTS" border="normal" id="resultswin" use="com.pennantExamination.controller.ExamineeResultsController">
+	<listbox rows="1" mold="select">
+		<listitem label="Examinee Id"/>
+		<listitem label="Name"/>
+		<listitem label="Edit"/>
+	</listbox>		
+	<separator></separator>
+	<hlayout style="margin-right:-1000px;">
+		<button  label="Add Results" id="addExamineeResults" sclass="medium" iconSclass="z-icon-plus"  style="float:right ; margin-left: 1200px" 
+		onClick="resultswin.showModal()" />
+	</hlayout>
+	<separator bar="true"/>
+	<listbox id="examineeResultslistbox" model="${resultswin$composer.examineeResults}" mold="paging" pageSize="5">
+		<listhead sizable="true">
+			<listheader id="examinee_id" align="center"
+				label="Examinee Id"/>
+			<listheader id="examinee_name" align="center"   
+				label= "Examinee Name" sort="auto" />
+			<listheader id="examinee_spec" align="center" 
+				label="Specialization"/>
+			<listheader id="examinee_aptitudescore" align="center" 
+				label="Aptitude Score"/>
+			<listheader id="examinee_technicalscore" align="center" 
+				label="Technical Score"/>
+			<listheader id="examinee_totalscore" align="center" 
+				label="Total Score"/>	
+			<listheader id="examinee_edit" align="center" label="Edit" />
+			<listheader id="examinee_delete" align="center" label="Delete" />
+		</listhead>
+		<template name="model">
+			<listitem height="28px">
+			<listcell label="${each.examineeId}"/>
+			<listcell label="${each.examineeFullName}"/>
+			<listcell label="${each.examineeSpecialization}"/> 
+			<listcell label="${each.aptitudeScore}"/>
+			<listcell label="${each.technicalScore}"/>
+			<listcell label="${each.totalScore}"/>
+			<listcell
+			 	iconSclass="z-icon-edit" id="${each.examineeId}" onClick="resultswin.examineeResultsUpdate(self.getId())">
+			</listcell>
+			<listcell iconSclass="z-icon-trash-o" id="w${each.examineeId}" onClick="examineeDelete(self.getId())" />
+			</listitem>
+		</template>
+		
+	</listbox>
+	
+	<zscript>
+   <![CDATA[
+            public void examineeDelete(String s){
+            	String id=s;
+            Messagebox.show("Are you sure you want to delete?", "Confirm Dialog", Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION, new org.zkoss.zk.ui.event.EventListener()
+						{
+   								 public void onEvent(Event evt) throws InterruptedException
+   								 {
+       										 if (evt.getName().equals("onOK"))
+       										 {
+       											resultswin.examineeResultsdelete(s);
+       										 } 
+        									 else 
+        									 {
+           										 alert("Delete Canceled !");
+       										 }
+   								 }
+						});
+            }
+	]]>
+   </zscript>
+	
+</window>
+</zk>

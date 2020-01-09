@@ -1,0 +1,81 @@
+<zk>
+<div>
+<style>
+.z-window {
+border: none;
+}
+.z-listheader {
+    background: #f57f20;
+    border-left: none;
+    border-bottom: none;
+    }
+    .z-window-header {
+    color: rgb(245, 127, 32);
+    }
+.z-button{
+background-color:#f57f20;
+}
+.medium {
+	font-size: 15px;
+	padding: .3em 1.5em .42em;
+}
+</style>
+</div>
+<window title="SETS" border="normal" id="setswin" use="com.pennantExamination.controller.SetsController">
+	<listbox rows="1" mold="select">
+		<listitem label="Set Id"/>
+		<listitem label="Set Name"/>
+	</listbox>		
+	<separator></separator>
+	<hlayout style="margin-right:-1000px;">
+		<button  label="Add Set" id="addSets" sclass="medium" iconSclass="z-icon-plus" style="float:right ; margin-left: 1200px" 
+		onClick="setswin.showModal()" />
+	</hlayout>
+	<separator bar="true"/>
+	<listbox id="setslistbox" model="${setswin$composer.sets}" mold="paging" pageSize="5">
+		<listhead sizable="true">
+			<listheader id="set_id" align="center"
+				label="Set Id"/>
+			<listheader id="set_no" align="center"   
+				label="Set No" sort="auto" />
+			<listheader id="set_enabled" align="center" 
+				label="Enabled"/>
+			<listheader id="set_edit" align="center" label="Edit" />
+			<listheader id="set_delete" align="center" label="Delete" />
+		</listhead>
+		
+		<template name="model">
+		<listitem height="28px" >
+			<listcell label="${each.setId}"/>
+			<listcell label="${each.setNo}"/>
+			<listcell label="${each.setEnabled}"/> 
+			<listcell iconSclass="z-icon-edit" id="${each.setId}" onClick="setswin.setsUpdate(self.getId())"/>
+			<listcell iconSclass="z-icon-trash-o" id="w${each.setId}" onClick="setsDelete(self.getId())"/>
+		</listitem>
+		</template>
+	</listbox>
+	
+		<zscript>
+   <![CDATA[
+            public void setsDelete(String s){
+            	String id=s;
+            Messagebox.show("Are you sure you want to delete?", "Confirm Dialog", Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION, new org.zkoss.zk.ui.event.EventListener()
+						{
+   								 public void onEvent(Event evt) throws InterruptedException
+   								 {
+       										 if (evt.getName().equals("onOK"))
+       										 {
+       											setswin.setsdelete(s);
+       										 } 
+        									 else 
+        									 {
+           										 alert("Delete Canceled !");
+       										 }
+   								 }
+						});
+            }
+	]]>
+   </zscript>
+	
+</window>
+</zk>

@@ -1,0 +1,99 @@
+<zk>
+<window closable="true" id="editTestPapersWin" use="com.pennantExamination.controller.EditTestPapersController">
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: center;
+}
+.wrapperr {
+    text-align: start;
+}
+</style>
+	<hlayout>
+		
+		<div>
+			<grid id="editTestPapersgrid" width="750px">
+				<columns>
+					<column label="Edit Test Question" width="190px" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						Question ID:
+						<hlayout>
+							<intbox tabindex="1" id="editQuestionId"
+								sclass="blue" readonly="true"/>
+						</hlayout>
+					</row>
+					<row>
+						Question:
+						<hlayout>
+							<textbox tabindex="2" id="editQuestion" rows="3" width="300px"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Option A:
+						<hlayout>
+							<textbox tabindex="3" id="editOptionA"
+								sclass="blue" />
+						</hlayout>
+
+					</row>
+
+					<row>
+						Option B:
+						<textbox tabindex="4" id="editOptionB" sclass="blue" />
+					</row>
+					<row>
+						Option C:
+						<textbox tabindex="5" id="editOptionC" sclass="blue" />
+					</row>
+					<row>
+						Option D:
+						<textbox tabindex="6" id="editOptionD" sclass="blue" />
+					</row>
+					<row>
+						Correct Option:
+						<hbox>
+							<textbox tabindex="7" id="editCorrectAnswer"
+								sclass="blue" />
+						</hbox>
+					</row>
+					<row>
+						Question Type:
+						<combobox tabindex="8" id="editQsnType" sclass="blue">
+							<comboitem label="Java" value="Java" />
+							<comboitem label="Aptitude" value="Aptitude" />
+						</combobox>
+					</row>
+					<row>
+						Set Id:
+						<intbox tabindex="9" id="editSetId"
+							sclass="blue" />
+					</row>
+					<row>
+						<cell class="wrapper" colspan="1" >
+							<button label="Edit" id="editSubmit" onClick="editTestPapersWin.onUpdate()"/>
+						</cell>
+						<cell class="wrapperr" colspan="1">
+							<button label="Close" id="editTestPapersClose" onClick="editTestPapersWin.detach()"/>	
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</div>
+	</hlayout>
+	</window>
+</zk>

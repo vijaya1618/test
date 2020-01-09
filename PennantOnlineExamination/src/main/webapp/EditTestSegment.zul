@@ -1,0 +1,82 @@
+<zk>
+<window closable="true" id="EditTestSegmentWin" use="com.pennantExamination.controller.TestSegmentEditController">
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+
+.z-hlayout-inner {
+    width: 70%;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: end;
+}
+.wrapperr {
+    text-align: start;
+}
+.button {
+    position: absolute;
+    top: 50%;
+}
+.z-grid {
+
+    width: 600px;
+}
+.z-grid-body {
+    width: 1226px;
+}
+element.style {
+    overflow: auto;
+    width: 1226px;
+}
+
+</style>
+
+	<hlayout >
+		
+		
+			<grid id="EditTestSegmentgrid" width="1350px">
+				<columns>
+					<column label="Edit TestSegment Details" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						TestSegment Name:
+						<hlayout>
+							<textbox tabindex="2" id="editTestSegmentName"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Enabled:
+						<hlayout>
+							<checkbox tabindex="2" id="enabled"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						<cell class="wrapper" colspan="2" width="120px">
+							<button label="Edit" id="editSubmit" onClick="EditTestSegmentWin.onUpdate()" />
+						</cell>
+						
+						<cell class="wrapperr" colspan="2" width="120px">
+							<button label="Close" id="editClose" onClick="EditTestSegmentWin.detach()" />	
+						</cell>
+						<cell></cell>
+					</row>
+				</rows>
+			</grid>
+		
+	</hlayout>
+	</window>
+</zk>

@@ -1,0 +1,154 @@
+<zk>
+   <div>
+    <style>
+        .complex-layout {
+            background-image:url('img9.jpg');
+background-size: cover;
+        }
+        
+      .z-north, .z-north-collapsed, .z-north-splitter {
+           background: transparent;
+       }
+       .z-west-splitter{
+       background: transparent;
+       }
+       .z-west{
+       background: transparent;
+       }
+       .z-center{
+       background: transparent;
+       }
+       .inner-border {
+       background: none;
+       }
+       .z-navbar ul {
+       background: #f57f20;
+       }
+       .z-north-body{
+       color: rgb(245, 127, 32);
+       }
+       .z-north, .z-south, .z-west, .z-center, .z-east {
+       border:none;
+       }
+       .z-navbar {
+       border-top: none;
+    border-bottom: none;
+    }
+    .z-tabbox {
+    background: none;
+    }
+    .z-tabs {
+    background: none;
+    }
+    .z-tab {
+    background: #f9fcff;
+    }
+    .z-window {
+     background: none;
+    }
+.z-window-content {
+ background: none;
+    }
+    .z-tabbox {
+    border:none;
+       }
+.z-tab-text {
+color: rgb(245, 127, 32);
+}
+.z-tab-selected .z-tab-text {
+color: #38161a;
+}
+.z-tabbox-left>.z-tabpanels {
+border-left: none;
+}
+.z-hlayout-inner{
+width:50%;
+}
+.z-button{
+background-color:#f57f20;
+}
+    </style>
+       
+       <borderlayout sclass="complex-layout" height="756px" apply="com.pennantExamination.controller.AdminLogoutController">
+            <north size="70px" border="0">
+               
+               		
+                   <hlayout width="100%">
+                    <image src="pennant logo.png" width="120px" height="70px" style="margin-top:-15px" /> 
+                    <button id="Logout" label="Logout" iconSclass="z-icon-sign-out" style="float:right"/>
+                   </hlayout> 
+            </north>
+            <center>
+               <borderlayout sclass="inner-border">
+                    <!-- <north border="0" height="43px" margins="2,3,0,0">
+                        <label value="Welcome To Pennant Online Examination Portal." style="font-size:20px;" />
+                    </north> -->
+                    <center>
+                   <tabbox id="tb" height="700px" orient="vertical">
+    <tabs id="tabs" width="250px">
+        <tab id="citiesTab" label="Cities" />
+        <tab id="collegesTab" label="Colleges" />
+        <tab id="degreesTab" label="Degrees" />
+        <tab id="specializationsTab" label="Specializations" />
+        <tab id="testSegmentsTab" label="Test Segments" />
+        <tab id="examineeTab" label="Examinee" />
+        <tab id="examineeResultsTab" label="Examinee Results" />
+        <tab id="setsTab" label="Sets" />
+        <tab id="testPapersTab" label="Test Papers" />
+        
+    </tabs>
+    <tabpanels>
+        <tabpanel id="CitiesInfo">
+             <include id="citiesContent"
+                            src="cities.zul" />
+        </tabpanel>
+        <tabpanel id="CollegesInfo">
+              <include id="collegesContent"
+                            src="colleges.zul" />
+        </tabpanel>
+        <tabpanel id="DegreesInfo">
+              <include id="degreesContent"
+                            src="Degrees.zul" />
+        </tabpanel>
+        <tabpanel id="SpecializationsInfo">
+               <include id="specializationsContent"
+                            src="Specializations.zul" />
+        </tabpanel>
+        <tabpanel id="TestSegmentsInfo">
+               <include id="TestSegmentsContent"
+                            src="TestSegments.zul" />
+        </tabpanel>
+        <tabpanel id="ExamineeInfo">
+                        <include id="examineeContent"
+                            src="examinee.zul" />
+        </tabpanel>
+        <tabpanel id="ExamineeResultsInfo">
+        				<include id="examineeResultsContent"
+        						src="examineeResults.zul" />
+        				
+        </tabpanel>
+        <tabpanel id="SetsInfo">
+        				<include id="setsContent"
+        						src="sets.zul" />
+        </tabpanel>
+        <tabpanel id="TestPapersInfo">
+        				<include id="testPapersContent"
+        						src="testPapers.zul" />
+        </tabpanel>
+                    
+    </tabpanels>
+</tabbox>
+                    </center>
+                  
+					</borderlayout>
+					
+					<!-- <label value="Online recruitment system is a platform to hold all the process of the employment for the organization.
+					It is an automated system with the various component to facilitate the processes involved in finding,
+					attracting, assessing, interviewing and hiring a new employee." style="font-size:20px;"/> -->
+				
+				            
+
+            </center>
+       </borderlayout>
+   </div>
+</zk>

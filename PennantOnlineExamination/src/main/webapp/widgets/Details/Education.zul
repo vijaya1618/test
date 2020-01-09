@@ -1,0 +1,150 @@
+<zk>
+<style>
+.z-column-content .z-label {
+  font-size: 20px;
+}
+.z-column{
+	background-color:#eb7022;
+	background:#eb7022;
+	border-left:#eb7022;
+	border-bottom:1px solid #eb7022;
+}
+
+.z-grid-header-border{
+border-bottom:1px solid #eb7022;
+}
+.z-row-content{
+line-height:1.3em;
+padding: 4px 16px;
+}
+.z-north, .z-south, .z-west, .z-center, .z-east {
+background:transparent;
+}
+.z-columns-bar {
+    background: #eb7022;
+    }
+    .z-columns-bar {
+    border-left: 1px solid #eb7022;
+    border-bottom: 1px solid #eb7022;
+}
+.z-button{
+    background-color: #eb7022;
+}
+
+
+
+
+
+</style>
+<div id="educreg" use="com.pennantExamination.controller.OnlineCntrl" sclass="bg">
+    <grid style="margin-left:150px; width:800px;height:550px;background:transparent;">
+       
+            <columns>
+                <column label="Educational Details" width="350px" style="font-size:16px;" />
+                <column  />                
+            </columns>
+            <rows>
+                <row>
+               <label style="font-size:20px">10th Standard:</label>
+                </row>
+               <row>
+                School Name
+                  <hlayout>
+                        <textbox tabindex="1" id="school_name" constraint="no empty"/>
+                    </hlayout>
+                    </row>
+                    <row>
+               School City
+                  <hlayout>
+                        <textbox tabindex="2" id="school_city" constraint="no empty"/>
+                    </hlayout>
+                    </row>
+                    <row>
+               School state
+                  <hlayout>
+                        <textbox tabindex="3" id="School_state" constraint="no empty" />
+                    </hlayout>
+                    </row>
+                    <row>
+              School Pincode
+                  <hlayout>
+                        <intbox tabindex="4" id="School_pincode"  maxlength="6"/>
+                    </hlayout>
+                    </row>
+                    <row>
+                Board Name
+                  <hlayout>
+                        <textbox tabindex="5" id="Sch_board_name" constraint="no empty"/>
+                    </hlayout>
+                    </row>
+                     <row>
+               Year of Passing
+                  <hlayout>
+                        <intbox tabindex="6" id="school_yop" maxlength="4"/>
+                    </hlayout>
+              </row>
+                <row>
+               Aggregate
+                  <hlayout>
+                        <doublebox tabindex="7" id="School_agg" constraint="no empty" maxlength="4"/>
+                    </hlayout>
+              </row>
+               <row>
+               <label style="font-size:20px">Intermediate/Diploma:</label>
+                </row>
+                <row>
+                College Name
+                  <hlayout>
+                        <textbox tabindex="8" id="inter_clz_name" constraint="no empty"/>
+                    </hlayout>
+                    </row>
+                    <row>
+                College city
+                  <hlayout>
+                        <textbox tabindex="9" id="college_city" constraint="no empty"/>
+                    </hlayout>
+                    </row>
+                    <row>
+               College State
+                  <hlayout>
+                        <textbox tabindex="10" id="College_state" constraint="no empty"/>
+                    </hlayout>
+                    </row>
+               <row>
+             
+                College Pincode
+                  <hlayout>
+                        <intbox tabindex="11" id="college_pincode" maxlength="6"/>
+                    </hlayout>
+                    </row>
+                    <row>
+                Board Name
+                  <hlayout>
+                        <textbox tabindex="12" id="clz_board_name" constraint="no empty"/>
+                    </hlayout>
+              </row>
+                   <row>
+               Year of Passing
+                  <hlayout>
+                        <intbox tabindex="13" id="clz_yop" maxlength="4"/>
+                    </hlayout>
+              </row>
+                 <row>
+               Aggregate
+                  <hlayout>
+                        <doublebox tabindex="14" id="clz_agg" constraint="no empty" maxlength="4"/>
+                    </hlayout>
+              </row>
+              
+               <row>
+               <cell colspan="2" style="text-align:center">
+             
+              <button label="submit" id="submit" onClick="educreg.educreg_submit()"/>
+                </cell>
+              </row>
+            
+                 </rows>
+             
+        </grid>
+    </div> 
+</zk>

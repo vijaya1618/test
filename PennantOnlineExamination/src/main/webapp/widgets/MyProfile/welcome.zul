@@ -1,0 +1,19 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style>
+		.sg{
+		   background:transparent; 
+		   text-align:center;
+		  font-size:540px;
+		}
+	.sg>.z-window-content{
+	 background:transparent; 
+	}
+	.z-label{
+	font-size:26px;
+	}
+</style>
+<window border="normal" class="sg" >
+Please fill the Educational and Technical Details in My Profile
+</window>
+</zk>

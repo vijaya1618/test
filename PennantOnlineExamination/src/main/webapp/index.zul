@@ -1,0 +1,96 @@
+
+<zk>
+<window id="logIn" 
+	       use="com.pennantExamination.controller.LogInCtrl"
+		>
+<html>
+<img src="pennant logo.png" width="200px" height="200px" />
+<h1>
+Pennant Technologies Online Examination System</h1></html>
+<style>
+h1
+{
+color:#F86C21;
+}
+body
+{
+background-image:url('img6.jpg');
+background-size: cover;
+}
+div.loginGrid {
+text-align: center;
+padding: 123px;
+}
+.z-label{
+color: #f86c23;
+}
+
+   .z-window { 
+    background-color: transparent;
+        border: none;
+}
+.z-window-content {
+    background: transparent;
+   }
+   .z-label {
+    color: #f86c23;
+    font-size: 20px;
+}
+div.loginGrid {
+    text-align: right;
+    padding: 89px;
+}
+.z-textbox{
+    background: transparent;
+    border: 1px solid #191818;
+    color: white;
+}
+.z-combobox-input{
+background: transparent;
+border: 1px solid #0e0d0d;
+    color: white;
+}
+.z-combobox-button{
+background: transparent;
+border: 1px solid #0e0d0d;
+}
+.z-button {
+    background-color: #f86c21;
+    }
+   ::placeholder{
+      color:white;
+    }
+    .z-textbox::placeholder{
+      color:white;
+    }
+    
+    
+</style>
+<div sclass="loginGrid" >
+<html>
+<h1>
+LOGIN</h1>
+</html>
+<label width="300px">User Type:</label><space></space>
+<combobox id="usertype" placeholder="select user" 
+              width="200px">
+                  <comboitem label="Admin" value="Admin" />
+                  <comboitem label="User" value="Admin"/>
+</combobox>
+<separator>
+</separator>
+<label width="300px">User Name:</label>
+<textbox id="userName" placeholder="enter username" width="200px"></textbox>
+<separator>
+</separator>
+<label width="300px">Password:</label><space></space>
+<textbox id="password" type="password" placeholder="type password" width="200px"></textbox>
+<separator>
+</separator>
+<button id="logInSubmit" onClick="logIn.logInUser()">Go</button>
+<button href="UserRegistration.zul">
+ SignUp/Register
+</button>
+</div>
+</window>
+</zk>

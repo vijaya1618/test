@@ -1,0 +1,81 @@
+<zk>
+<window closable="true" id="EditDegreeWin" use="com.pennantExamination.controller.DegreeEditController" >
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-body {
+width:px;
+}
+
+.z-hlayout-inner {
+    width: 70%;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: end;
+}
+.wrapperr {
+    text-align: start;
+}
+.button {
+    position: absolute;
+    top: 50%;
+}
+
+</style>
+
+	<hlayout >
+		
+		
+			<grid id="EditDegreegrid" width="1350px">
+				<columns>
+					<column label="Edit Degree Details" />
+					<column />
+				</columns>
+				<rows>
+					<!-- <row>
+						Degree Id:
+						<hlayout>
+							<textbox tabindex="1" id="editDegreeId"
+								sclass="blue" />
+						</hlayout>
+					</row> -->
+					<row>
+						Degree Name:
+						<hlayout>
+							<textbox tabindex="2" id="editDegreeName"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Enabled:
+						<hlayout>
+							<checkbox tabindex="2" id="enabled"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						<cell class="wrapper" colspan="2" width="120px">
+							<button label="Edit" id="editSubmit" onClick="EditDegreeWin.onUpdate()" />
+						</cell>
+						
+						<cell class="wrapperr" colspan="2" width="120px">
+							<button label="Close" id="editClose" onClick="EditDegreeWin.detach()" />	
+						</cell>
+						<cell></cell>
+					</row>
+				</rows>
+			</grid>
+		
+	</hlayout>
+	</window>
+</zk>

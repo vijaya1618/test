@@ -1,0 +1,83 @@
+<zk>
+<div>
+<style>
+.body {
+	background-image:url('img9.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+	font-family: "Bold", Times, serif;
+   
+}
+.z-window {
+border: none;
+    padding: 0px;
+    }
+
+.z-navbar ul {
+    background:transparent;
+    border:0px;
+}
+.z-navitem-content{
+color: #f47c1c;
+    background: #0a0a0a;
+}
+
+.z-navbar .z-navitem-selected .z-navitem-content {
+    color: #f57f20;
+    background: #dbf0f7;
+}
+    .z-window-content {
+        color: #f47c1c;
+       
+        }
+        .z-north, .z-south, .z-center {
+    width: 100%;
+    border: 0px;
+}
+.z-navbar {
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 4px;
+    border: 0px;
+}
+
+.z-north, .z-south, .z-west, .z-center, .z-east {
+    background: transparent;
+    border: 0px;
+    
+}
+ .z-navbar-horizontal>ul .z-nav-content, .z-navbar-horizontal>ul .z-navitem-content, .z-navbar-horizontal>ul .z-navseparator {
+    background: black;
+    border:0px;
+}
+    
+    
+</style>
+</div>
+       
+       <window height="100%" contentSclass="body" style="background:transparent;font-family: Times New Roman, Times, serif;" border="0px"
+       use="com.pennantExamination.controller.WellcomeController">
+              <image src="Pennant.jpg" width="200px" height="60px" style="background:transparent;" />
+              <label id="welcomeUser"></label>
+       <div height="100%" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.pennantExamination.controller.PageCntrl')" style="background:transparent;">
+       <borderlayout style="background:transparent; border:none;">
+       <north size="10%" style="background:transparent;font-family:Times New Roman;">
+            <navbar style="border:none;">
+	     	    <navitem label="MyProfile" onClick="@command('MyProfilePage')" />
+				<navitem label="My Scores" onClick="@command('MyScorePage')" />
+				<navitem label="Start Exam" onClick="@command('StartExam')" />
+				<navitem label="More"  onClick="@command('MyMorePage')"/>
+		   	  	<navitem label="Logout" style="float:right;" onClick="@command('LogoutPage')"/>				
+	    	</navbar>
+	    </north>
+	      
+      <center style="font-family:Times New Roman;background:transparent;overflow:auto;">
+      <include id="contentInclude" mode="instant" sclass="content" src="@load(vm.menuPage)"/>
+      </center>
+      </borderlayout>
+      </div>
+	</window>
+</zk>

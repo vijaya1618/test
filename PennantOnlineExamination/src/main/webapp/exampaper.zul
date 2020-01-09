@@ -1,0 +1,192 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style>
+.z-window-content{
+	background-image:url('photo.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+.z-listbox-body{
+    overflow: auto;
+    width: 1347px;
+    background:transparent;
+}
+.z-listitem,.z-listitem-selected,.z-listitem-focus:hover>z-listcell
+{
+	background:transparent;
+	position: relative;
+}
+
+
+.z-listitem.z-listitem-selected>.z-listcell
+{
+	background:transparent;
+	position: relative;
+}
+.z-listitem-focus>.z-listcell
+{
+	background:transparent;
+	position: relative;
+}
+.z-listitem:selected
+{
+	background:transparent;
+}
+.z-listbox-body {
+  
+   background:transparent;
+}
+.z-listbox .z-listcell {
+   background:transparent;
+}
+.z-listbox .z-listcell:hover {
+   background:transparent;
+}
+.z-listbox .z-listcell:action {
+   background:transparent;
+}
+.z-paging {
+  background:transparent;   
+}
+.z-listcell-content
+{
+	font-size:20px;
+}
+</style>
+ <window   id="Win" use="com.pennantExamination.controller.QuestionController" height="788px">
+    
+<div> 
+
+<label value="Section:Aptitude"/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/>
+<label value="Pennant Online Exam"/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/>
+<label value="Duration:20 Minutes"/>
+
+
+
+
+		<html><![CDATA[
+          
+		 <style>
+		 input{
+			    text-align:center;
+			    width: 25px; 
+			    border: none;
+			    font-size: 23px; 
+			    font-weight:bold;
+			    color:rgba(27, 97, 32, 0.9);
+			}
+		 .z-window {			   
+			    zoom: 1;
+			    border: 0px solid #a8a8a8;
+			    border-radius: 0px;
+			    //padding: 16px;
+			    background-color: #f9fcff;
+			}
+		 .z-listbox-header {
+			 
+			 background: #f47c1c;
+		 
+		 }
+		 .z-listheader {
+			 background: #f47c1c;
+		 }
+		 .z-listbox-header-border {
+			    border-bottom: 1px solid #f47c1c;
+		 }
+		 
+		 .z-button {
+		    margin-top:35px;
+		    margin-left: 537px;
+		    background-color: #f47c1c;
+		 }
+		 .timer{
+			 float:right;
+		 }
+		 .z-label{
+			 font-size:21px;
+		 }
+		 .z-listitem.z-listitem-selected.z-listitem-focus:hover>.z-listcell{
+			 background:transparent;
+		     position:relative;
+		 }
+		 </style>
+		<script>
+		var mins = 5; 
+		var secs = mins * 60; 
+		function countdown() { 
+		    setTimeout('Decrement()', 60); 
+		} 
+		function Decrement() { 
+		        minutes = document.getElementById("min"); 
+		        seconds = document.getElementById("sec");
+		        if (seconds < 59) { 
+		            seconds.value = secs; 
+		        } 
+		        else { 
+		            minutes.value = getMinutes(); 
+		            seconds.value = getSeconds(); 
+		        }
+		        if (secs < 10) { 
+		            minutes.style.color = "red"; 
+		            seconds.style.color = "red";
+		            document.getElementById("msg").innerHTML = "HURRY UP!!"; 
+		        } 
+		        if (mins < 0) { 
+		            alert('Timeout'); 
+		            minutes.value = '00'; 
+		            seconds.value = '00';
+		            document.getElementById("msg").innerHTML = "Time's up.";
+		        }
+		        else { 
+		            secs--; 
+		            setTimeout('Decrement()', 1000); 
+		        } 	
+		}
+		function getMinutes() { 
+		    mins = Math.floor(secs / 60); 
+		    return mins; 
+		} 
+		function getSeconds() { 
+		    return secs - Math.round(mins * 60); 
+		}
+		</script>
+		<body >
+		
+		<div  class="timer">
+			
+			<div> 
+			    <input id="min" type="text" readonly><font size="3">:</font> 
+			    <input id="sec" type="text" readonly> 
+			    <p id="msg"></p>
+			</div>
+		</div>
+		 </body>
+		]]></html>
+</div>
+<separator/>
+<separator/>
+<separator/>
+<separator/>
+<listbox id="questionPaperList" model="${Win$composer.questions}"  mold="paging" pageSize="1">
+     <listhead sizable = "true">
+        <listheader id="questions"  width="1000px" label="Questions" />
+     </listhead>
+     <template name="model">
+     <listitem height="250px">
+        <listcell label="${each.question_id}.${each.question}" >
+        <radiogroup id="${each.question_id}" onClick="Win.submit(self.getId())">
+             <vbox>
+ 			   	<radio label="${each.option_A}" value="A"/>
+         	   	<radio label="${each.option_B}" value="B"/>
+				<radio label="${each.option_C}" value="C"/>
+				<radio label="${each.option_D}" value="D"/>
+      		 </vbox> 
+      	</radiogroup>          
+        </listcell>
+     </listitem>
+     </template>
+</listbox>
+<button  id="submit" label="Submit" onClick="Win.submit1()" ></button>
+</window>
+</zk>   

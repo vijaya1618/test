@@ -1,0 +1,65 @@
+<zk>
+<window closable="true" id="editSetsWin" use="com.pennantExamination.controller.EditSetsController">
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: center;
+}
+.wrapperr {
+    text-align: start;
+}
+</style>
+	<hlayout>
+		<div>
+			<grid id="editSetsgrid" width="750px">
+				<columns>
+					<column label="Edit Sets"  width="200px"/>
+					<column />
+				</columns>
+				<rows>
+					<row>
+						Set ID:
+						<hlayout>
+							<intbox tabindex="1" id="editSetId"
+								sclass="blue" readonly="true"/>
+						</hlayout>
+					</row>
+					<row>
+						Set Number:
+						<hlayout>
+							<intbox tabindex="2" id="editSetNo"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Enable:
+						<hlayout>
+							<checkbox tabindex="3" id="editEnabled"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						<cell class="wrapper" colspan="1" >
+							<button label="Edit" id="editSubmit" onClick="editSetsWin.onUpdate()" />
+						</cell>
+						<cell class="wrapperr" colspan="1">
+							<button label="Close" id="editSetsClose" onClick="editSetsWin.detach()"/>	
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</div>
+	</hlayout>
+</window>
+</zk>

@@ -1,0 +1,170 @@
+<zk>
+<window closable="true" id="editExamineeWin" use="com.pennantExamination.controller.examineeEditController">
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-body {
+width:px;
+}
+
+.z-hlayout-inner {
+    width: 70%;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: end;
+}
+.wrapperr {
+    text-align: start;
+}
+.button {
+    position: absolute;
+    top: 50%;
+}
+
+
+</style>
+
+	<hlayout >
+		
+		
+			<grid id="editExamineegrid" width="1350px">
+				<columns>
+					<column label="Edit Examinee Details" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						Examinee ID:
+						<hlayout>
+							<intbox tabindex="1" id="editExamineeId"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Full Name:
+						<hlayout>
+							<textbox tabindex="2" id="editFullName"
+								sclass="blue" />
+						</hlayout>
+						User Name:
+						<hlayout>
+							<textbox tabindex="3" id="editUserName"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+					    
+						Password:
+						<hlayout>
+						<textbox type="password" tabindex="4" id="editPassword"
+							sclass="blue" />
+						</hlayout>
+						
+						Email:
+						<hlayout>
+						<textbox tabindex="5" id="editEmail" sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Phone:
+						<longbox maxlength="10" tabindex="6" id="editPhn"
+							sclass="blue" />
+						Gender:
+						<radiogroup id="gender" tabindex="7">
+						<radio id="male" label="Male" name="male" value="male" iconSclass="z-icon-male" radiogroup="gender"/>
+						<radio id="female" label="Female" name="female" value="female" iconSclass="z-icon-female" radiogroup="gender"/>
+						</radiogroup>
+					</row>
+					<row>
+						DOB:
+						<hbox>
+							<datebox tabindex="8" id="editDOB" constraint="no future"
+								sclass="blue" />
+						</hbox>
+					
+						Year of Passing:
+						<combobox tabindex="9" id="editYop" sclass="blue">
+							<comboitem label="2017" value="2017" />
+							<comboitem label="2018" value="2018" />
+							<comboitem label="2019" value="2019" />
+							<comboitem label="2020" value="2020" />
+							<comboitem label="2021" value="2021" />
+						</combobox>
+					</row>
+					<row>
+						Degree:
+						<combobox tabindex="10" id="editCourse"
+							sclass="blue">
+							<comboitem label="B.tech" value="B.tech" />
+							<comboitem label="M.tech" value="M.tech" />
+							<comboitem label="MCA" value="MCA" />
+							<comboitem label="BSC" value="BSC" />
+						</combobox>
+					
+						Specialization:
+						<combobox tabindex="11" id="editSpecialization"
+							sclass="blue">
+							<comboitem label="CSE" value="CSE" />
+							<comboitem label="ECE" value="ECE" />
+							<comboitem label="EEE" value="EEE" />
+							<comboitem label="Mechanical" value="Mech" />
+							<comboitem label="Civil" value="Civil" />
+						</combobox>
+					</row>
+					<row>
+						College:
+						<combobox tabindex="12" id="editCollege"
+							sclass="blue">
+							<comboitem label="Lendi" value="Lendi" />
+							<comboitem label="MVGR" value="MVGR" />
+							<comboitem label="GMR" value="GMR" />
+							<comboitem label="Avanthi" value="Avanthi" />
+							<comboitem label="GVP" value="GVP" />
+						</combobox>
+					
+						Address:
+						<textbox width="250px;" tabindex="13"
+							id="editAddress" sclass="blue" rows="3" />
+					</row>
+					<row>
+						Aadhaar:
+						<longbox constraint="no empty" maxlength="14"
+							tabindex="12" id="editAadhaar" sclass="blue" />
+					
+						Resume:
+						<!-- <button label="Upload" tabindex="15" id="editResume"
+								upload="true,maxsize=-1,multiple=true,accept=audio/*|video/*|image/*|MIME_type, native"/> -->
+								
+						<fileupload label="Upload file" id="editResume">
+				   <attribute name="onUpload">
+				   org.zkoss.util.media.Media media = event.getMedia();
+				   //then, you can process media here
+				   </attribute>
+				</fileupload>
+					</row>
+					<row>
+						<cell class="wrapper" colspan="2" width="120px">
+							<button label="Edit" id="editSubmit" onClick="editExamineeWin.onUpdate()" />
+						</cell>
+						
+						<cell class="wrapperr" colspan="2" width="120px">
+							<button label="Close" id="editClose" onClick="editExamineeWin.detach()"  />	
+						</cell>
+						<cell></cell>
+					</row>
+				</rows>
+			</grid>
+		
+	</hlayout>
+	</window>
+</zk>

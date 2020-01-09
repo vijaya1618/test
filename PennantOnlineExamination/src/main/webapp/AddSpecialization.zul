@@ -1,0 +1,84 @@
+<zk>
+<window closable="true" id="AddSpecializationWin"  use="com.pennantExamination.controller.AddSpecializationController">
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-body {
+width:px;
+}
+
+.z-hlayout-inner {
+    width: 70%;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: end;
+}
+.wrapperr {
+    text-align: start;
+}
+.button {
+    position: absolute;
+    top: 50%;
+}
+
+</style>
+
+	<hlayout >
+		
+		
+			<grid id="AddSpecializationgrid" width="1194px">
+				<columns>
+					<column label="Add Specialization Details" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						Specialization Name:
+						<hlayout>
+							<textbox tabindex="1" id="addSpecializationName" width="200px"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Degree Name:
+						<hlayout>
+							<combobox tabindex="2" id="addDegreeName" model="${AddDegreeWin$composer.DegreeList}" sclass="blue" width="200px" >
+							<template name="model">
+                 		<comboitem label="${each.degreeName}" value="${each.degreeId}"/>
+                 		</template>
+                 </combobox>
+						</hlayout>
+					</row>
+					<row>
+						Enabled:
+						<hlayout>
+							<checkbox tabindex="3" id="enabled"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						<cell class="wrapper" colspan="2" width="120px">
+							<button label="Add" id="AddSubmit" onClick="AddSpecializationWin.insertSpecializationDetails()"/>
+						</cell>
+						
+						<cell class="wrapperr" colspan="2" width="120px">
+							<button label="Close" id="editClose" onClick="AddSpecializationWin.detach()" />	
+						</cell>
+						<cell></cell>
+					</row>
+				</rows>
+			</grid>
+		
+	</hlayout>
+	</window>
+</zk>

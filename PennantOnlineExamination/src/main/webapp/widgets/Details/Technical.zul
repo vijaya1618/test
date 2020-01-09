@@ -1,0 +1,104 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+ 
+  <style>
+.z-column-content .z-label {
+  font-size: 20px;
+}
+.z-column{
+	background-color:#eb7022;
+	background:#eb7022;
+	border-left:#eb7022;
+	border-bottom:1px solid #eb7022;
+}
+
+.z-grid-header-border{
+border-bottom:1px solid #eb7022;
+}
+
+.z-row-content{
+line-height:1.3em;
+padding: 4px 16px;
+}
+.z-north, .z-south, .z-west, .z-center, .z-east {
+background:transparent;
+}
+.z-button{
+    background-color: #eb7022;
+}
+</style>
+<div id="techreg" use="com.pennantExamination.controller.OnlineCntrl">
+    <grid style=" margin-left:150px; width:800px;">
+       
+            <columns>
+                <column label="Technical Details" width="400px" style="font-size:16px" />
+                <column  />                
+            </columns>
+            <rows>
+                <row>
+               <label style="font-size:20px">Project Details:</label>
+               
+               
+                  
+                </row>
+               <row>
+                Project Name
+                  <hlayout>
+                        <textbox tabindex="1" id="project_name" constraint="no empty"/>
+                    </hlayout>
+                    </row>
+                     <row>
+                Project Guide
+                  <hlayout>
+                        <textbox tabindex="2" id="project_guide" constraint="no empty"/>
+                    </hlayout>
+              </row>
+                <row>
+                Project Duration
+                  <hlayout>
+                        <textbox tabindex="3" id="project_duration" constraint="no empty"/>
+                    </hlayout>
+              </row>
+              <row>
+              Institution Name
+                  <hlayout>
+                        <textbox tabindex="4" id="institution_name" constraint="no empty"/>
+                    </hlayout>
+              </row>
+                <row>
+                Project Description
+                  <hlayout>
+                        <textbox tabindex="5" id="project_description" rows="3" width="500px" constraint="no empty"/>
+                    </hlayout>
+              </row>
+                <row>
+               <label style="font-size:20px">Technical skills:</label>
+                </row>
+                 <row>
+             Languages Known
+                  <hlayout>
+                        <textbox tabindex="6" id="languages_known" constraint="no empty" />
+                    </hlayout>
+              </row>
+                 <row>
+             Experience
+                  <hlayout>
+                        <combobox id="experience" tabindex="7" constraint="no empty">
+                        	<comboitem label="Beginner" value="1"/>
+                        	<comboitem label="Intermediate" value="2"/>
+                        	<comboitem label="Expert" value="3"/>
+                        </combobox>
+                    </hlayout>
+              </row>
+               <row>
+               <cell colspan="2" style="text-align:center">
+             
+              <button label="submit" id="submit" onClick="techreg.submit()"/>
+                </cell>
+              </row>
+                </rows>
+             
+        </grid>
+  </div>
+  </zk>

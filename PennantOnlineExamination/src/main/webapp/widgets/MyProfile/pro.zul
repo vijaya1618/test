@@ -1,0 +1,152 @@
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ca="client/attribute"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<window id="userWin" border="none"  
+	       use="com.pennantExamination.controller.UserController"
+		>
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+ .z-row-content{
+ line-height: 0em;
+ padding: 4px 16px;
+ }
+.z-button {
+background-color: #f57f20;
+}
+
+.z-north, .z-south, .z-west, .z-center, .z-east {
+background:transparent;
+}
+.wrapperr {
+    text-align: end;
+}
+
+
+</style>
+  <!--   <style src="/widgets/input/form_sample/style.css" /> -->
+    <hlayout>
+    <div>
+    	<vlayout>
+    	
+		</vlayout>
+	</div>
+	<div>
+        <grid >
+            <columns>
+                <column label="Personal Details" width="200px" />
+                <column />                
+            </columns>
+            <rows>
+            <row>
+                Examinee ID:
+                    <hlayout>
+                        <intbox tabindex="1" id="examineeid" sclass="blue" readonly="true"/>
+                    </hlayout>
+                </row>
+                
+                <row>
+                Fullname:
+                    <hlayout>
+                        <textbox tabindex="2" id="fullName" sclass="blue"/>
+                    </hlayout>
+                </row>
+                <row>
+                Username:
+                    <hlayout>
+                        <textbox tabindex="3" id="userName" sclass="blue" />
+                    </hlayout>
+                 
+                </row>
+              
+               
+                <row>
+                    E-mail:
+                        <textbox tabindex="4" id="email" sclass="blue" /> 
+                </row>
+                 <row>
+                    Phone:
+                    <textbox maxlength="10" tabindex="5" id="phoneNo" sclass="blue" />
+                </row>
+                 <row>
+                    Gender:
+                    <radiogroup id="gender">
+                    <radio id="Male" label="Male" name="Male" value="Male" radiogroup="gender" />
+                    <radio id="Female" label="Female" name="Female" value="Female" radiogroup="gender" />
+                     </radiogroup>
+                </row>
+                <row>
+                    DOB:
+                    <hbox>
+                        <datebox tabindex="6" id="dob" sclass="blue" />
+                    </hbox>
+                </row>
+                 <row>
+                 Year of Passing:
+                 <combobox tabindex="7" id="yop" sclass="blue" >
+                 		<comboitem label="2017" value="2017"/>
+                 		<comboitem label="2018" value="2018"/>
+                 		<comboitem label="2019" value="2019"/>
+                 		<comboitem label="2020" value="2020"/>
+                 		<comboitem label="2021" value="2021"/>
+                 </combobox>
+                </row>
+               <row>
+                Course:
+                 <combobox tabindex="8" id="course" sclass="blue" >
+                 		<comboitem label="B.tech" value="B.tech"/>
+                 		<comboitem label="M.tech" value="M.tech"/>
+                 		<comboitem label="MCA" value="MCA"/>
+                 		<comboitem label="BSC" value="BSC"/>
+                 </combobox>
+                </row>
+                <row>
+                Specialization:
+                 <combobox tabindex="9" id="specialization" sclass="blue" >
+                 		<comboitem label="ECE" value="ECE"/>
+                 		<comboitem label="CSE" value="CSE"/>
+                 		<comboitem label="EEE" value="EEE"/>
+                 		<comboitem label="MECH" value="MECH"/>
+                 </combobox>
+                </row>
+                <row>
+                Colleges:
+                <combobox tabindex="10" id="college" sclass="blue" >
+                 		<comboitem label="Lendi" value="Lendi"/>
+                 		<comboitem label="MVGR" value="MVGR"/>
+                 		<comboitem label="GMR" value="GMR"/>
+                 		<comboitem label="Avanthi" value="Avanthi"/>
+                 		<comboitem label="GVP" value="GVP"/>
+                 </combobox>
+                </row>
+               
+                 <row>
+                  Address:
+                  <textbox width="370px;" tabindex="11" id="address" sclass="blue" />
+                 </row>
+                 <row>
+                    Aadhar:
+                    <longbox constraint="no empty" maxlength="12" tabindex="12" id="aadhar" sclass="blue" />
+                </row>
+                 <row>
+                <cell class="wrapperr" colspan="1">
+                	<button label="Update" id="userUpdate"  onClick="userWin.onUpdate()"/>
+                </cell>
+                </row>
+              </rows>
+        </grid>
+        
+   </div>
+   </hlayout>
+   </window>
+</zk>

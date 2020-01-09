@@ -1,0 +1,60 @@
+<zk>
+<window closable="true" id="addSetsWin" use="com.pennantExamination.controller.AddSetsController">
+<style>
+.z-column {
+background:#f57f20;
+border-left: 1px solid #f57f20;
+border-bottom: 1px solid #f57f20;
+}
+.z-grid-header-border {
+border bottom:none;
+border-bottom: 1px solid #f57f20;
+}
+.z-button {
+background-color: #f57f20;
+}
+.wrapper {
+    text-align: center;
+}
+.wrapperr {
+    text-align: start;
+}
+</style>
+	<hlayout>
+		<div>
+			<grid id="addSetsgrid" width="750px">
+				<columns>
+					<column label="Add Sets"  width="200px"/>
+					<column />
+				</columns>
+				<rows>
+					
+					
+					<row>
+						Set Number:
+						<hlayout>
+							<intbox tabindex="1" id="addSetNo"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						Enable:
+						<hlayout>
+							<checkbox tabindex="2" id="addEnabled"
+								sclass="blue" />
+						</hlayout>
+					</row>
+					<row>
+						<cell class="wrapper" colspan="1" >
+							<button label="Add" id="addSubmit" onClick="addSetsWin.insertSets()"/>
+						</cell>
+						<cell class="wrapperr" colspan="1">
+							<button label="Close" id="addSetsClose" onClick="addSetsWin.detach()" />	
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</div>
+	</hlayout>
+</window>
+</zk>

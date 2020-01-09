@@ -1,0 +1,9 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style>
+.z-north, .z-south, .z-west, .z-center, .z-east {
+background:transparent;
+}
+
+</style>
+</zk>

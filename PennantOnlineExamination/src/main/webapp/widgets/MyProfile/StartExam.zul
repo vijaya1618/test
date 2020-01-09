@@ -1,0 +1,10 @@
+<?page title="Pennant Online Exam" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style>
+
+</style>
+<window  border="normal" style="background:transparent;">
+   <a label="Click here" href="/exampaper.zul"  style="background:transparent;"/>
+
+</window>
+</zk>
