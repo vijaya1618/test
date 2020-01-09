@@ -11,7 +11,7 @@
 		<packname>-${project.version}-FL-${maven.build.timestamp}</packname>
 		<spring.version>4.0.5.RELEASE</spring.version>
 		<spring.security.version>3.2.5.RELEASE</spring.security.version>
-		<spring.batch.version>3.0.6.RELEASE</spring.batch.version>
+		<spring.batch.version>4.0.0.RELEASE</spring.batch.version>
 		<spring.ws.version>2.1.0.RELEASE</spring.ws.version>
 		<spring.web.version>3.0.5</spring.web.version>
 		<atlantic.version>8.0.4.1</atlantic.version>
