@@ -1,0 +1,247 @@
+
+<zk>
+<style>
+.z-tablechildren {
+vertical-align: middle;
+}
+.z-tablelayout{
+		    width: 80%;
+    margin: 0 auto;
+    background: #1010106b;
+    margin-top: 76px;
+    border-radius: 31px;
+    padding: 10px;
+    height: 414px;
+}
+.scheme_form{
+    width: 75%;
+    margin: 0 auto;
+    background: transparent;
+    height: 100%;
+    
+}
+.body{
+width:100%;
+height:100%;
+}
+.z-textbox, .z-decimalbox, .z-intbox, .z-longbox, .z-doublebox, .z-select{
+    width: 180px;
+    height: 32px;
+    border-radius: 5px;
+}
+
+
+
+</style>
+<div class="body">
+		<div id="scheme" class="scheme_form" use="com.rahul.schemes.Editscheme_Controller">
+		<tablelayout id="scheme_table" columns="4"  >
+			<tablechildren colspan="4" style="text-align:center;height:36px;"><label  value="SCHEME" style="font-size:21px;font-family:Arial Black;color:#ead983;background: #00000082;"/></tablechildren>
+			<tablechildren>
+					<label value="NAME:"/>
+			</tablechildren>
+			<tablechildren>
+					<textbox id="scheme_name" readonly="true" />
+			</tablechildren>
+			<tablechildren>
+					<label value="LOAN TYPE:" />
+			</tablechildren>
+			<tablechildren>
+					<listbox id="scheme_loan_type"  mold="select" model="${model}" xmlns:w="client" onSelect="val.Value=self.selectedItem.label">
+					 <attribute w:name="doBlur_"><![CDATA[
+            function(evt) {
+                this.$doBlur_(evt);
+                if (this.$n().value == '') {
+                    zAu.wrongValue_(this, 'Please select.....');
+                } else {
+                    zAu.cmd0.clearWrongValue(this.uuid);
+                }
+            }
+        ]]></attribute>      <listitem label="Select" value="" />
+		                            <listitem label="Gold Loan" value= "Goldloan" />
+		                            <listitem label="Home loan" value="Homeloan" />
+		                            <listitem id="sloantype" selected="true"/>
+		            </listbox>
+		            <label id="val" style="display:none"/>
+			</tablechildren>
+			<tablechildren>
+					<label value="PRODUCT:"/>
+			</tablechildren>
+			<tablechildren>
+		            <textbox id="scheme_product" constraint="no empty:must be filled, /^[a-zA-Z ]+$/ :please use alphabet"  />
+			</tablechildren>
+		     <tablechildren>
+		     		<label value="Calc Basis:" />
+		     </tablechildren>
+		     <tablechildren>
+		             <listbox id="scheme_calcBasics" mold="select" model="${model}" xmlns:w="client" onSelect="cb.Value=self.selectedItem.label">
+		                            		 <attribute w:name="doBlur_"><![CDATA[
+            function(evt) {
+                this.$doBlur_(evt);
+                if (this.$n().value == '') {
+                    zAu.wrongValue_(this, 'Please select.....');
+                } else {
+                    zAu.cmd0.clearWrongValue(this.uuid);
+                }
+            }
+        ]]></attribute> 
+        							  <listitem label="Select" value="Select" />
+		                            <listitem label="Daily" value="Daily" />
+		                            <listitem label="Monthly" value="Monthly" />
+		                            <listitem label="Yearly" value="Yearly" />
+		                            <listitem id="calbasis" selected="true"/>
+		            </listbox>
+		              <label id="cb" style="display:none"/>
+		            
+		     </tablechildren>
+		       <tablechildren>
+		     		<label value="Min Loan Amount:" />
+		     </tablechildren>
+		     <tablechildren>
+		            <doublebox id="scheme_minLoanAmount"  format=",###.###" constraint=" no empty,/^[0-9]+$/"/>                     	
+		     </tablechildren>
+		     <tablechildren>
+		            <label value="Max Loan Amount:" />
+		     </tablechildren>
+		     <tablechildren>
+		            <doublebox id="scheme_maxLoanAmount" format=",###.#" constraint=" no empty,/^[0-9]+$/" />
+		     </tablechildren>
+		     <tablechildren>
+		            <label value=" COMPOUND:" />
+		     </tablechildren>
+		     <tablechildren>
+		            <listbox id="scheme_compound" mold="select"  model="${model}" xmlns:w="client" onSelect="com.Value=self.selectedItem.label">
+		            					 <attribute w:name="doBlur_"><![CDATA[
+            function(evt) {
+                this.$doBlur_(evt);
+                if (this.$n().value == '') {
+                    zAu.wrongValue_(this, 'Please select.....');
+                } else {
+                    zAu.cmd0.clearWrongValue(this.uuid);
+                }
+            }
+        ]]></attribute> 
+		            
+		                            <listitem label="Select" value="" />
+		                            <listitem label="Yes" value="YES" />
+		                            <listitem label="No" value="NO" />
+		                            <listitem id="schemecompound" selected="true"/>
+		            </listbox>
+		             <label id="com" style="display:none"/>
+		     </tablechildren> 
+		     <tablechildren>
+		            <label value="Payment Frequency:" />
+		     </tablechildren>
+		     <tablechildren>
+		            <listbox id="scheme_paymentFrequency" mold="select" model="${model}" xmlns:w="client" onSelect="pf.Value=self.selectedItem.label">
+		                         					 <attribute w:name="doBlur_"><![CDATA[
+            function(evt) {
+                this.$doBlur_(evt);
+                if (this.$n().value == '') {
+                    zAu.wrongValue_(this, 'Please select.....');
+                } else {
+                    zAu.cmd0.clearWrongValue(this.uuid);
+                }
+            }
+        ]]></attribute>   
+		                            <listitem label="Select"/>
+		                            <listitem label="30" value="30" />
+		                            <listitem label="180" value="180" />
+		                            <listitem label="365" value="365" />
+		                            <listitem id="schemepf" selected="true"/>
+		                            
+		            </listbox>
+		            <label id="pf" style="display:none"/>
+		     </tablechildren>    
+		      <tablechildren>
+			 		 <label value="Applicable From:" />
+			 </tablechildren>
+			 <tablechildren>
+			 		 <datebox id="scheme_applicableFrom" format="dd/MM/yyyy"  constraint="no empty" />
+			 </tablechildren>
+			 <tablechildren>
+			  		 <label value="Applicable To:" />
+			 </tablechildren>
+			 <tablechildren>
+			 		 <datebox id="scheme_applicableTo" format="dd/MM/yyyy"   constraint="no empty, no past: now or never"  />
+			 </tablechildren>
+		          
+			 <tablechildren>
+			  		<label value="Payment In Advance:" />
+			 </tablechildren>
+			 <tablechildren>
+			 	 	 <listbox id="paymentInAdvance"  mold="select"  model="${model}" xmlns:w="client" onSelect="pa.Value=self.selectedItem.label">
+			 	 	     					 <attribute w:name="doBlur_"><![CDATA[
+            function(evt) {
+                this.$doBlur_(evt);
+                if (this.$n().value == '') {
+                    zAu.wrongValue_(this, 'Please select.....');
+                } else {
+                    zAu.cmd0.clearWrongValue(this.uuid);
+                }
+            }
+        ]]></attribute> 
+		            
+		                            <listitem label="Select" value="" />
+		                            <listitem label="Yes" value="Yes" />
+		                            <listitem label="No" value="No" />
+		                            <listitem id="pay_inadvance" selected="true"/>
+		             </listbox>
+		             <label id="pa" style="display:none"/>
+			 </tablechildren>
+			 <tablechildren>
+					 <label value="Loan Period:" />
+			 </tablechildren>
+			 <tablechildren>
+			  		 <intbox id="scheme_loanPeriod" format=",###.#" constraint="no empty" />
+			 </tablechildren>
+			 <tablechildren>
+			 		 <label  value="Interest:" />
+			 </tablechildren>
+			 <tablechildren>
+			  		 <doublebox id="scheme_interest" format="#,##0.##"  constraint=" no empty,/^[0-9]+$/"   />
+			 </tablechildren>
+			 <tablechildren>
+			  		 <label value="days:" />
+			 </tablechildren>
+			 <tablechildren>
+			   		 <listbox id="scheme_days" mold="select"  model="${model}" xmlns:w="client" onSelect="dy.Value=self.selectedItem.value">
+			   		     					 <attribute w:name="doBlur_"><![CDATA[
+            function(evt) {
+                this.$doBlur_(evt);
+                if (this.$n().value == '') {
+                    zAu.wrongValue_(this, 'Please select.....');
+                } else {
+                    zAu.cmd0.clearWrongValue(this.uuid);
+                }
+            }
+        ]]></attribute> 
+		            
+		                            <listitem label="select" value="" />
+		                            <listitem label="30" value="30"/>
+		                            <listitem label="180" value="180" />
+		                            <listitem label="365" value="365"/>
+		                            <listitem id="schemedays" selected="true"/>
+		              </listbox>
+		              <label id="dy" style="display:none" />
+			 </tablechildren>
+			
+			 <tablechildren colspan="4" style="text-align:center">
+			   		<button label="Save" onClick="scheme.onsave()" style="line-height: 16px;"/>
+			   		<button label="back" onClick='scheme.test()' style="line-height:16px;" />
+		     </tablechildren>
+		</tablelayout>
+		</div>
+</div>
+<div id="listenerDiv" onShowNotification="@command('tocustmerpage')" style="display:none" />
+
+<script type="text/javascript">
+<![CDATA[   
+
+ function fireEventFromClient() {
+    zk.Widget.$('$listenerDiv').fire('onShowNotification', null, {toServer:true});
+ }
+
+
+]]></script>
+</zk>

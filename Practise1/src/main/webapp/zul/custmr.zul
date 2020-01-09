@@ -1,0 +1,105 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style>
+.z-window{
+padding:0px;
+background:transparent;
+    
+}
+.z-window-content{
+background:transparent;
+}
+z-listbox-emptybody-content{
+color:white;
+font-size:20px;
+}
+.z-listbox {
+    border:1px solid #0a0a0a;
+    margin-top: 53px !important;
+}
+.z-listbox-header-border {
+    border-bottom: 1px solid #09090a;
+}
+
+.z-listheader{
+    background: #08080873;
+    border-left: 1px solid #1e1f1f;
+}
+.z-listbox-header{
+background: #0093f900;
+}
+.z-listbox-body {
+    background: #fff0;
+}
+.z-listitem .z-listcell{
+background:#0c0c0c00;
+}
+.z-listitem.z-listitem-selected.z-listitem-focus:hover>.z-listcell{
+background:white;
+}
+.z-listitem.z-listitem-selected.z-listitem-focus>.z-listcell{
+background:white;
+}
+.z-listitem.z-listitem-selected>.z-listcell {
+background:white;
+}
+.z-listitem:hover>.z-listcell{
+background: #6c7073a8;
+}
+.z-listitem.z-listitem-selected:hover>.z-listcell{
+    background: #6c7073a8;
+}
+
+</style>
+<window id="account"  border="none"
+        use="com.rahul.customers.CustmerController">
+        
+	<vlayout>
+	<vbox  style="text-align:center;margin: 0 auto"><label value="Customer Enrollement" style="font-size:25px;color:#ead983;font-family: Arial Black;background: #00000082;" /></vbox>
+	<hbox align="center">
+		<label value="Customer Name:" style="black"/>
+		<textbox id="Accountbox" />   
+		
+		<button id="searchButton" label="Search" iconSclass="z-icon-search" onClick="account.findcustomer()"/>
+		
+	</hbox>
+	<listbox id="accountlist" emptyMessage="No Customers Found"  style="margin-top:10px">
+	
+		<listhead>
+		    <listheader label="Id"/>
+		    <listheader label="Acno"/>
+			<listheader label="Name"/>
+			<listheader label="DOB"/>
+			<listheader label="Reg.Date"/>
+			<listheader label="Status"/>
+		</listhead>
+		  <template name="model">
+            <listitem>
+                <listcell label="${each.custmr_id}"></listcell>
+                <listcell label="${each.custmr_accuntno}"></listcell>
+                <listcell label="${each.custmr_name}"></listcell>
+                <listcell label="${each.custmr_dob}"></listcell>
+                <listcell label="${each.custmr_regdate}" self="@{format(yyyy/MM/dd)}"></listcell>
+                <listcell label="${each.custmr_status}" ></listcell>
+            </listitem>
+        </template>
+	</listbox>
+	</vlayout>
+	<zscript>
+   <![CDATA[
+            public void del(String s){
+            	String id=s;
+            Messagebox.show("Are you sure you want to delete?", "Confirm Dialog", Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION, new org.zkoss.zk.ui.event.EventListener()
+							{
+   								 public void onEvent(Event evt) throws InterruptedException {
+       										 if (evt.getName().equals("onOK")) {loan.onDelete(s);} 
+        										 else {
+           												 alert("Delete Canceled !");
+       													 }
+   														 }
+								});
+            }
+					]]>
+   </zscript>
+	</window>
+</zk>

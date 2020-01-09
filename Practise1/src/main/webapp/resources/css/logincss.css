@@ -1,0 +1,175 @@
+.mainbody{
+	width:100%;
+	height:100%;
+	
+}
+.gold{
+	font-size:30px;
+}
+.loan{
+}
+.loginform{
+ 	background: rgba(0, 0, 0, 0.4117647058823529);
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 11px 21px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top:100px;
+}
+.loginform:hover{
+
+	box-shadow: -11px 10px 5px 8px rgba(0,0,0,0.31);
+	transition-duration: 1s;
+}
+a {
+    color: black;
+    font-size: 14px;
+    text-decoration: none;
+}
+.group{
+	height:2px;
+ 	display: flex;
+    padding: 15px 5px;
+    background-color: #ffffff;
+}
+.box{
+ 	 width: 100%;
+    border: none;
+    box-sizing: border-box;
+    background: transparent;
+    color: #000;
+}
+.but{
+
+}
+
+
+.but:hover {
+    background-color: #fc3955;
+    transition-duration: 2s;
+}
+.textboxes{
+	background-color: #ffffff;
+	border-radius: 15px;
+	width: 100%;
+}
+.subbody{
+ background: url('../images/gold_loan.jpg') no-repeat 0px 0px;
+ 	background-size:100% 100%;
+ 	
+ 	height: 100% !important;
+ 	width:100% !important;
+}
+.top{
+width:100% !important;;
+height: 75px;
+background-color: #adb3b3;
+}
+.text_style{
+color: rgba(247, 240, 240, 0.9);
+}
+.z-loading-icon {
+background:none;
+	
+ 	
+    margin-top: 13%;
+}
+.z-loading-icon,
+.z-loading-icon::before,
+.z-loading-icon::after {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid #ceb502;
+  position: relative;
+  -webkit-animation: 3s z-loading-icon linear infinite 2s both;
+  animation: 3s z-loading-icon linear infinite 2s both;
+  top: 50px;
+}
+.z-loading-icon::before,
+.z-loading-icon::after {
+  content: "";
+  position: absolute;
+}
+
+.z-loading-icon::before {
+  left: 25px;
+  top: 0;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.z-loading-icon::after {
+  top: -50px;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+@-webkit-keyframes z-loading-icon {
+  0% {
+    border-bottom-color: rgb(206, 181, 2);
+  }
+  40% {
+    border-bottom-color: rgba(206, 181, 2, 0);
+  }
+  80% {
+    border-bottom-color: rgb(206, 181, 2);
+  }
+  100% {
+    border-bottom-color: rgb(206, 181, 2);
+  }
+}
+
+@keyframes z-loading-icon {
+  0% {
+    border-bottom-color: rgb(206, 181, 2);
+  }
+  40% {
+    border-bottom-color: rgba(206, 181, 2, 0);
+  }
+  80% {
+    border-bottom-color: rgb(206, 181, 2);
+  }
+  100% {
+    border-bottom-color: rgb(206, 181, 2);
+  }
+}
+
+.z-textbox{
+  	width: 94%;
+    border: none;
+    box-sizing: border-box;
+   	padding:0px;
+    color: #000;
+    font-family: cursive;
+}
+.z-loading{
+	width:100%;
+	height:100%;
+	background: rgba(0, 0, 0, 0.4117647058823529);
+}
+.z-loading-indicator, .z-apply-loading-indicator{
+	background:none;
+	height:100%;
+	color:transparent;
+}
+
+
+
+input[type="radio"] {
+    background: #cecece;
+    border: 1px solid #d9d9d9;
+}
+input[type="radio"]:hover {
+border-color: #1c1c1d;
+}
+input[type="radio"]:checked{
+    border-color: #181819;
+}
+input[type="radio"]:checked:before{
+    background-color: #212223;
+}
+input[type="radio"]:focus{
+outline: none;
+}

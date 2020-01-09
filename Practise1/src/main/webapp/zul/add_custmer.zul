@@ -1,0 +1,191 @@
+
+<zk>
+<style>
+.z-tablechildren {
+vertical-align: middle;
+}
+.z-tablelayout{
+		    width: 80%;
+    margin: 0 auto;
+    background: #1010106b;
+    margin-top: 76px;
+    border-radius: 31px;
+    padding: 10px;
+    height: 414px;
+}
+.customer_form{
+    width: 75%;
+    margin: 0 auto;
+    background: transparent;
+    height: 100%;
+    
+}
+.body{
+width:100%;
+height:100%;
+}
+.z-textbox, .z-decimalbox, .z-intbox, .z-longbox, .z-doublebox, .z-select{
+    width: 180px;
+    height: 32px;
+    border-radius: 5px;
+}
+
+
+
+</style>
+<div class="body">
+		<div id="customer" class="customer_form" use="com.rahul.customers.Add_Custmer_Cntrl">
+		<tablelayout id="customer_table" columns="4"  >
+			<tablechildren colspan="4" style="text-align:center;height:36px;"><label  value="CUSTOMER" style="font-size:21px;font-family:Arial Black;color:#ead983"/></tablechildren>
+			
+			
+			<tablechildren>
+					<label value="CustomerName:"/>
+			</tablechildren>
+			<tablechildren>
+					<textbox id="CustomerName" constraint="no empty,/^[a-zA-Z\. ]+$/ :please use alphabet"  />
+			</tablechildren>
+			<tablechildren>
+				<label value="AccountNo:" />
+			</tablechildren>
+			<tablechildren>	
+				<longbox id="AccountNo" constraint="no empty" onChange="customer.customerValidate()" ></longbox>
+				<label id="x" style="color:red" ></label>
+			</tablechildren>
+			
+			
+			<tablechildren>
+				<label value="AadharNo" />
+			</tablechildren>
+			<tablechildren>	
+				<longbox id="AadharNo" constraint="no empty" maxlength="12"></longbox>
+			</tablechildren>
+
+			<tablechildren>
+				<label value="Category:" />
+			</tablechildren>
+			<tablechildren>
+				<textbox id="Category" constraint="/^[a-zA-Z\- ]+$/ :please use alphabet"></textbox>
+			</tablechildren>
+
+			<tablechildren>
+				
+				<radiogroup id="g1"  />
+					
+				<label id="choice1"  value="Gender:" />
+				</tablechildren>
+			<tablechildren>		
+				
+				<radio id="r1" label="M" radiogroup="g1" />
+				<radio id="r2" label="F" radiogroup="g1" />
+				<radio id="r3" label="Other" radiogroup="g1" />
+				
+				<label id="gender" value="gen" style="display:none"/> 
+			</tablechildren>
+
+		
+
+			<tablechildren>
+				<label value="PresentAddress:" />
+			</tablechildren>
+			<tablechildren>
+				<textbox id="PresentAddress" constraint="/^[a-zA-Z\.\- ]+$/ :please use alphabet"></textbox>
+			</tablechildren>
+
+			<tablechildren>
+				<label value="PermanentAddress:" />
+				</tablechildren>
+				<tablechildren>
+				<textbox id="PermanentAddress" constraint="/^[a-zA-Z\.\- ]+$/ :please use alphabet"></textbox>
+			</tablechildren>
+
+			<tablechildren>
+				<label value="Nationality:" />
+			</tablechildren>
+			<tablechildren>
+				<listbox id="selectType" mold="select"   model="${model}" xmlns:w="client"  onSelect="nation.value = self.selectedItem.label">
+        <attribute w:name="doBlur_"><![CDATA[
+            function(evt) {
+                this.$doBlur_(evt);
+                if (this.$n().value == '') {
+                    zAu.wrongValue_(this, 'Please select.....');
+                } else {
+                    zAu.cmd0.clearWrongValue(this.uuid);
+                }
+            }
+        ]]></attribute>
+                            <listitem label="Select" value="" />
+                            <listitem label="Indian" value= "India" />
+                          <listitem label="Other" value="Other" />   
+                  </listbox>
+                       <label id="nation" value="rr" style="display:none"/> 
+			</tablechildren>
+			
+		
+			<tablechildren>
+				<label value="MartialStatus:" />
+			</tablechildren>
+			<tablechildren>	
+				<listbox id="select" mold="select"   model="${model}" xmlns:w="client" onSelect="mst.value = self.selectedItem.label">
+						<attribute w:name="doBlur_"><![CDATA[
+            function(evt) {
+                this.$doBlur_(evt);
+                if (this.$n().value == '') {
+                    zAu.wrongValue_(this, 'Please select.....');
+                } else {
+                    zAu.cmd0.clearWrongValue(this.uuid);
+                }
+            }
+        ]]></attribute>
+                            <listitem label="Select" value="" />
+                             <listitem label="Single" value= "Single" />
+                            <listitem label="Married" value= "Married" />
+                 </listbox>
+                       <label id="mst" value="rr" style="display:none"/>  
+			</tablechildren>
+
+
+			<tablechildren>
+				<label value="DateofBirth:" />
+			</tablechildren>
+			<tablechildren>	
+				<datebox id="DateofBirth" constraint="no empty, no future: now or never"></datebox>
+			</tablechildren>
+
+			<tablechildren>
+				
+				<label value="MobileNumber:" />
+			</tablechildren>
+			<tablechildren>	
+				<longbox id="MobileNumber" constraint="no empty" maxlength="10"></longbox>
+			</tablechildren>
+
+			<tablechildren>
+				<label value="Email:" />
+			</tablechildren>
+			<tablechildren>
+				<textbox id="Email" constraint="/^[A-Za-z0-9_\-\.]+@[A-Za-z0-9_\-\.]{2,}\.[A-Za-z0-9]{2,}(\.[A-Za-z0-9])?/: Please enter an e-mail address in proper format" ></textbox>
+			</tablechildren>
+			
+
+		
+		<tablechildren colspan="4" style="text-align:center">
+			   		<button label="Submit" onClick="customer.customerinsert()" style="line-height: 16px;"/>
+		     </tablechildren>
+		
+		</tablelayout>
+		<div id="listenerDiv" onShowNotification="@command('tocustmerpage')" style="display:none" />
+
+<script type="text/javascript">
+<![CDATA[   
+
+ function fireEventFromClient() {
+    zk.Widget.$('$listenerDiv').fire('onShowNotification', null, {toServer:true});
+ }
+
+
+]]></script>
+		</div>
+</div>
+
+</zk>

@@ -1,0 +1,58 @@
+<zk>
+ 
+  <style src="/resources/css/goldpagecss.css"/>
+
+<style>
+  .z-button:hover{
+background-color:white;
+color:black;
+}
+   .z-decimalbox[readonly]{
+    background: #ffffff;
+    }
+</style>
+<vlayout  sclass="pagebody" width="100%" height="100%" id="loan_item" use="com.rahul.golditem.Gold_item_controller">
+<div class="tablediv">
+<tablelayout id="item_table" columns="2" >
+<tablechildren colspan="2" style="text-align:center;"><label value="GOLD ITEM" style="font-size:25px;color:#ead983;font-family: Arial Black;"/></tablechildren>
+<tablechildren>ITEM :</tablechildren><tablechildren><textbox id="item_name"   constraint="no empty, /^[a-zA-Z ]+$/ :please use alphabet"  placeholder="Ex:Gold,.."/></tablechildren>
+<tablechildren>Purity(k) :</tablechildren><tablechildren><intbox id="item_purity" constraint="no empty" placeholder="Ex:24k,22k.."/></tablechildren>
+<tablechildren>Market Rate(per gram):</tablechildren><tablechildren>
+<decimalbox id="item_market_rate"  constraint="no empty" onBlur="loan_item.getlendingrate()"/></tablechildren>
+<tablechildren>Lending Rate(75%):</tablechildren><tablechildren><decimalbox id="item_lending_rate" readonly="true"/></tablechildren>
+<tablechildren colspan="2" style="text-align:center;"><button id="action" label="Add" onClick="loan_item.addGold_item()" style="line-height: 17px;width: 70px;" /><button id="action2" label ="Save" onClick="loan_item.save_details()"/> </tablechildren>
+</tablelayout>
+</div>
+
+
+	
+ <listbox id="listbox" emptyMessage="No items in the list"  width="80%" style="margin:0 auto; ">
+        <listhead>
+        	<listheader label="Item Id" style="font-size: 18px; font-weight: Italic;color:White;" />
+            <listheader label="Item Name" style="font-size: 18px; font-weight: Italic;color:White;"  />
+            <listheader label="Purity" style="font-size: 18px; font-weight: Italic;color:White;"  />
+            <listheader label="MarketRate" style="font-size: 18px; font-weight: Italic;color:White;"  />
+            <listheader label="LendingRate" style="font-size: 18px; font-weight: Italic;color:White;" />
+              <listheader label="Date" style="font-size: 18px; font-weight: Italic;color:White;"/>
+                <listheader label="Edit" style="font-size: 18px; font-weight: Italic;color:White;"/>
+        </listhead>
+         <template name="model">
+            <listitem>
+                <listcell label="${each.gold_item_id}"></listcell>
+                <listcell label="${each.gold_item_name}"></listcell>
+                <listcell label="${each.gold_item_purity}"></listcell>
+                <listcell label="${each.gold_item_market_rate}"></listcell>
+                <listcell label="${each.gold_item_lending_rate}"></listcell>
+                <listcell label="${each.gold_item_date}"></listcell>
+                <listcell><button id="${each.gold_item_id}" onClick="loan_item.get_editDetails(self.getId())" iconSclass="z-icon-edit"/></listcell>
+				
+            </listitem>
+        </template>
+     
+    </listbox>
+	
+	
+</vlayout>
+
+
+</zk>

@@ -1,0 +1,93 @@
+<?init class="com.rahul.Sessions.Verify_loginCredentials"?>
+<zk>
+<style  src="/resources/css/Homepagecss.css" />
+  <style>
+  .top{
+		width:100% !important;
+		height: 107px !important;
+		background-color: #adb3b3;
+		}
+		.z-north-body, .z-south-body, .z-west-body, .z-center-body, .z-east-body {
+			padding:0px !important;
+}
+  .z-button{
+      font-family: monospace;
+      font-size: 13px;
+      padding: 6px 11px;
+      line-height: 13px;
+      background-color: #131619;
+      width: 91px;
+      
+      }
+       .z-hlayout-inner{
+      width:33.33%;
+      padding-right:5px;
+      vertical-align: middle;
+      }
+      .z-label{
+			color:white;
+		}
+		.z-button:hover{
+background-color:white;
+color:black;
+}
+.z-button i{
+vertical-align: middle;
+}
+ .z-messagebox-information{
+	   background-image: url('../resources/images/success-story.png');
+	        background-size: 51px 48px;
+}
+   .z-messagebox {
+   		margin-top: 10px;
+   
+   }
+   .z-window-header{
+   color:transparent;
+   }
+   .z-messagebox-window {
+    background-color:#f0f7e8 !important;
+    }
+    .z-window-content{
+    color:#f0f7e8 !important;
+    }
+    .z-messagebox-icon{
+    width: 63px;
+    height: 46px;
+    }
+   
+  </style>
+    <borderlayout  id="container"  sclass="vertical" xmlns:w="client" xmlns:n="native" viewModel="@id('vm') @init('com.rahul.Login.PageController')" apply="org.zkoss.bind.BindComposer">
+   <north class="top">
+		<hlayout><image src="/resources/images/logo4.jpg" width="132px" height="107px" style="float:left;"/><label value="GOLD LOAN" sclass="gold" style="font-size:25px;color:#ead983;font-family: Arial Black;"/><vbox style="float:right;"><hbox><span sclass="z-icon-user"/><label id="user_role_label"  value="@bind(vm.l.user_role)"/></hbox><button iconSclass="z-icon-sign-out" label="logout" id="logout" onClick="@command('logout')"/></vbox></hlayout>
+	</north>
+    <west width="15%">    
+    
+        <navbar id="navbar" orient="vertical" collapsed="false"
+                onSelect="@command('navigatePage', target=self.selectedItem.attributes['navigationPage'])">
+ 
+            <nav label="Gold Loan" iconSclass="z-icon-bitcoin"  children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+    
+            <nav label="Scheme" iconSclass="z-icon-group" badgeText="3"
+                children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+ 
+            <nav label="Item Category" iconSclass="z-icon-truck" badgeText="4"
+                children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+ 
+            <nav label="Customers" iconSclass="z-icon-group"
+                children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+                
+             <nav label="Nominee" iconSclass="z-icon-group"
+                children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+                    
+            <template name="navitem" var="navigationPage">
+                <navitem label="@load(navigationPage.subTitle)" selected="@load(navigationPage.selected)" iconSclass="z-icon-location-arrow"/>
+            </template>
+        </navbar>
+      
+  </west><center>  <include id="contentInclude" mode="instant" sclass="content"
+                 currentPage="@ref(vm.currentPage)"
+                 src="@load(currentPage.includeUri)" /> </center></borderlayout>
+
+     
+</zk>

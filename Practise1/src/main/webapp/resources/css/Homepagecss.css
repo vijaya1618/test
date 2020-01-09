@@ -1,0 +1,221 @@
+.z-loading-icon {
+background:none;
+    margin-top: 13%;
+}
+.z-loading{
+	width:100%;
+	height:100%;
+	background: rgba(0, 0, 0, 0.4117647058823529);
+}
+.z-loading-indicator, .z-apply-loading-indicator{
+	background:none;
+	height:100%;
+	color:transparent;
+}
+.z-loading-icon,
+.z-loading-icon::before,
+.z-loading-icon::after {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid #ceb502;
+  position: relative;
+  -webkit-animation: 4s z-loading-icon linear infinite 3s both;
+  animation: 4s z-loading-icon linear infinite 3s both;
+  top: 50px;
+}
+.z-loading-icon::before,
+.z-loading-icon::after {
+  content: "";
+  position: absolute;
+}
+
+.z-loading-icon::before {
+  left: 25px;
+  top: 0;
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+
+.z-loading-icon::after {
+  top: -50px;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+@-webkit-keyframes z-loading-icon {
+  0% {
+    border-bottom-color: rgb(206, 181, 2);
+  }
+  40% {
+    border-bottom-color: rgba(206, 181, 2, 0);
+  }
+  80% {
+    border-bottom-color: rgb(206, 181, 2);
+  }
+  100% {
+    border-bottom-color: rgb(206, 181, 2);
+  }
+}
+
+@keyframes z-loading-icon {
+  0% {
+    border-bottom-color: rgb(206, 181, 2);
+  }
+  40% {
+    border-bottom-color: rgba(206, 181, 2, 0);
+  }
+  80% {
+    border-bottom-color: rgb(206, 181, 2);
+  }
+  100% {
+    border-bottom-color: rgb(206, 181, 2);
+  }
+}
+   .z-navitem-content{
+    margin-left:25px;
+    }
+   .z-borderlayout {
+  background: url('../images/hand_loan.jpg');
+  background-size:100% 100%;
+   
+   }
+  
+   .z-west-body{
+   background: rgba(0, 0, 0, 0.51);
+   }
+      .z-south, .z-west, .z-center, .z-east{
+      
+      background:transparent;
+      } 
+      .z-hlayout {
+          text-align: center;
+      
+      }
+      .z-hlayout-inner{
+      width:33.33%;
+      padding-right:5px;
+      vertical-align: middle;
+      }
+      .z-label{
+color:white;
+}
+      .top{
+		width:100%;
+		height: 75px;
+		background-color: #adb3b3;
+		}
+		.z-north-body, .z-south-body, .z-west-body, .z-center-body, .z-east-body {
+			padding:0px !important;
+}
+  .z-button{
+      font-family: monospace;
+      font-size: 13px;
+      padding: 6px 11px;
+      line-height: 13px;
+      background-color: #131619;
+      width: 91px;
+      
+      }
+       .z-hlayout-inner{
+      width:33.33%;
+      padding-right:5px;
+      vertical-align: middle;
+      }
+      .z-label{
+			color:white;
+		}
+		.z-button:hover{
+background-color:white;
+color:black;
+}
+.z-button i{
+vertical-align: middle;
+}
+ .z-messagebox-information{
+	   background-image: url('../resources/images/success-story.png');
+	        background-size: 34px 34px;
+}
+   .z-messagebox {
+   		margin-top: 10px;
+   
+   }
+   .z-window-header{
+   color:transparent;
+   }
+   .z-messagebox-window {
+    background-color:#f0f7e8 !important;
+    }
+   .z-errorbox{
+		    -webkit-animation: cssAnimation 0s ease-in 2s forwards;
+		
+		}
+		
+		@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+    
+    
+    .top{
+		width:100% !important;
+		height: 107px !important;
+		background-color: #adb3b3;
+		}
+.z-north-body, .z-south-body, .z-west-body, .z-center-body, .z-east-body {
+			padding:0px !important;
+}
+  .z-button{
+      font-family: monospace;
+      font-size: 13px;
+      padding: 6px 11px;
+      line-height: 13px;
+      background-color: #131619;
+      width: 91px;
+      
+      }
+       .z-hlayout-inner{
+      width:33.33%;
+      padding-right:5px;
+      vertical-align: middle;
+      }
+      .z-label{
+			color:white;
+		}
+		.z-button:hover{
+background-color:white;
+color:black;
+}
+.z-button i{
+vertical-align: middle;
+}
+ .z-messagebox-information{
+	   background-image: url('../resources/images/success-story.png');
+	        background-size: 51px 48px;
+}
+   .z-messagebox {
+   		margin-top: 10px;
+   
+   }
+   .z-window-header{
+   color:transparent;
+   }
+   .z-messagebox-window {
+    background-color:#f0f7e8 !important;
+    }
+    .z-window-content{
+    color:#f0f7e8 !important;
+    }
+    .z-messagebox-icon{
+    width: 63px;
+    height: 46px;
+    }

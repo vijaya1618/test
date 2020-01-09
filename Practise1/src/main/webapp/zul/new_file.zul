@@ -1,0 +1,165 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style src="/resources/css/applyloanpagecss.css"></style>
+<style>
+tr{
+  text-align: center;
+  }
+  .z-tablelayout {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 23px;
+    background: transparent;
+    border-radius: 13px;
+    padding-bottom: 6px;
+    height: 442px;
+}
+.z-tablechildren {
+    vertical-align: middle;
+    padding: 6px;
+    text-align: left;
+}
+</style>
+
+<window id="loan"  border="normal"  width="100%" height="100%" contentStyle="overflow:auto;" style="font-size: 18px; font-weight: italic;" use="">
+	<vlayout style="margin-top:80px;">
+	<div style="text-align:center"><label value="SCUCCESFULL....." /></div>
+	<div sclass="eachtable">
+		<tablelayout id="CustomerDeatils" columns="4">
+
+					<tablechildren colspan="4" style="text-align:center">
+							<label value="Loan Details"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="Loan Id:"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="CustomerName:"/>
+					</tablechildren>	
+	 				<tablechildren>
+	 						<label value="4554" />
+	 				</tablechildren>
+					<tablechildren>
+							<label value="NomineeName:"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="NomineeDOB:"/>
+					</tablechildren>
+					<tablechildren>
+		 					<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Item Type:" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Item Name:" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Item Weight(in grams):" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Item Purity:" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Item Market Rate:" />
+					</tablechildren>	
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Item Lending Rate" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren colspan="4" style="text-align:center">
+							<label value="Scheme Details" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Scheme Name:" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Payment Basis:" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Tenure:" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Loan Date:" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Frequency Of Pay:" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Requested Amount:" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Avialable Amount:" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Intrest Type:" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Apraisal Name:" />
+					</tablechildren>
+					<tablechildren>
+							<label value="4554" />
+					</tablechildren>
+		</tablelayout>
+	</div>
+
+	
+
+	<div>
+		<hlayout style="text-align:center;">
+		
+		<button onClick="loan.apply_loan()"  id="click" label="Back" style="line-height: 18px: width: 93px;"/>
+			 
+		
+		</hlayout>
+	</div>
+</vlayout>
+</window>
+</zk>	

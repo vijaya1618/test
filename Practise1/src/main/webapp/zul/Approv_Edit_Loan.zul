@@ -1,0 +1,306 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style src="/resources/css/applyloanpagecss.css"></style>
+<style>
+tr{
+  text-align: center;
+  }
+   .but { font-family: monospace; font-size: 13px; padding:
+		6px 11px; line-height: 15px; background-color: #131619; width:
+		50px; }
+</style>
+
+<window id="loan"  border="normal"  width="100%" height="100%" contentStyle="overflow:auto;" style="font-size: 18px; font-weight: italic" use="com.rahul.LoanSuccess.LoanSucessCntrl">
+	<vlayout>
+	<div style="text-align:center"><label id="label"  style="font-size:25px;color:#ead983;font-family: Arial Black;background: #00000082;"/></div>
+	<div sclass="eachtable">
+		<tablelayout id="CustomerDeatils" columns="4">
+
+					<tablechildren colspan="4" style="text-align:center">
+							<label value="CUSTOMER DETAILS"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="Customerid:"/>
+					</tablechildren>
+					<tablechildren>
+							<intbox id="Customerid" constraint="no negative"  readonly="true"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="CustomerName:" />
+					</tablechildren>	
+	 				<tablechildren>
+	 						<textbox id="CustomerName" readonly="true"/>
+	 				</tablechildren>
+					<tablechildren>
+							<label value="NomineeName:"/>
+					</tablechildren>
+					<tablechildren>
+							<textbox id="NomineeName" constraint="no negative" readonly="true" />
+					</tablechildren>
+					<tablechildren>
+							<label value="NomineeDOB:"/>
+					</tablechildren>
+					<tablechildren>
+		 					<datebox id="NomineeDOB" mold="rounded" format="dd.MM.yyyy"  lenient="false" buttonVisible="false" readonly="true"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="Relation:" />
+					</tablechildren>
+					<tablechildren>
+							<textbox id="nominee_relation" readonly="true" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Nominee Age" />
+					</tablechildren>
+					<tablechildren>
+							<intbox id="nominee_age" readonly="true" />
+					</tablechildren>
+					
+		</tablelayout>
+	</div>
+
+	<div sclass="eachtable">
+		<tablelayout id="ItemDeatils" columns="4">
+	
+					<tablechildren colspan="4" style="text-align:center">
+							<label value="ITEM DETAILS"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="ItemType:"/>
+					</tablechildren>
+					<tablechildren>	
+							<listbox id="item_type" mold="select"  model="${model}" xmlns:w="client"  onSelect="loan.onselecttype()" >
+								<attribute w:name="doBlur_"><![CDATA[
+           				 function(evt) {
+                		this.$doBlur_(evt);
+               			 if (this.$n().value == '') {
+                   			 zAu.wrongValue_(this, 'Please select.....');
+                		} else {
+                   		 zAu.cmd0.clearWrongValue(this.uuid);
+                		}
+            		}
+        			]]></attribute>
+								<listitem label="Gold" value="Gold" />
+                          		<listitem label="Silver" value="Silver" />
+                          		<listitem label="Platinum" value="Platinum"/>
+                  			</listbox>
+					</tablechildren>
+					 <tablechildren>
+							<label value="ItemName:"/>
+					 </tablechildren>
+					<tablechildren>
+							<textbox id="ItemName" constraint="no empty" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Weight In Grams:"/>
+					</tablechildren>
+					<tablechildren>	
+							<doublebox id="WeightInGrams" constraint="no empty"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="Purity" />
+					</tablechildren>
+					<tablechildren>
+							<listbox id="item_purity" mold="select"  model="${model}" xmlns:w="client"  onSelect="loan.loan_amounts(self.selectedItem.value)" >
+								<attribute w:name="doBlur_"><![CDATA[
+           				 function(evt) {
+                		this.$doBlur_(evt);
+               			 if (this.$n().value == '') {
+                   			 zAu.wrongValue_(this, 'Please select.....');
+                		} else {
+                   		 zAu.cmd0.clearWrongValue(this.uuid);
+                		}
+            		}
+        			]]></attribute>
+							<listitem label="18k" value="18" />
+                          	<listitem label="22k" value="22" />
+                          	<listitem label="24k" value="24"/>
+                  			</listbox>
+					</tablechildren>
+					<tablechildren>
+							<label value="Market Rate(per gram):" />
+					</tablechildren>
+					<tablechildren>
+							<doublebox id="gold_amount" constraint="no empty" readonly="true"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="Lending Rate(per gram):" />
+					</tablechildren>
+					<tablechildren>
+							<doublebox id="lending_amount" constraint="no empty" readonly="true"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="Total:" />
+					</tablechildren>
+					<tablechildren>
+							<doublebox id="total_amount" constraint="no empty" readonly="true"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="Image:" />
+					</tablechildren>
+					<tablechildren>
+							<textbox id="gold_image" width="130px" constraint="no empty"/> 
+							<button  upload="true" iconSclass="z-icon-upload" sclass="but">
+        							<attribute name="onUpload"><![CDATA[
+           									 org.zkoss.util.media.Media media = event.getMedia();
+          										  if (media instanceof org.zkoss.image.Image) {
+              										 	loan.fileUpload(media);
+               												
+            												} else {
+              										  Messagebox.show("Not an image: "+media, "Error", Messagebox.OK, Messagebox.ERROR);
+               											 break;
+         										  }
+        									]]></attribute>
+   									 </button>
+					</tablechildren>
+ 		</tablelayout>          
+	</div>
+
+	<div sclass="eachtable">
+		<tablelayout id="LoanDeatils" columns="4">
+	
+					<tablechildren colspan="4" style="text-align:center">
+							<label value="LOAN DETAILS"/> 
+					</tablechildren>
+					<tablechildren>
+							<label value="SchemeName:"/>
+					</tablechildren>
+					<tablechildren>
+							<listbox id="scheme_name" mold="select" model="${model}" xmlns:w="client"  onSelect="loan.scheme_details(self.selectedItem.label)"> 
+                  			<attribute w:name="doBlur_"><![CDATA[
+           				 function(evt) {
+                		this.$doBlur_(evt);
+               			 if (this.$n().value == '') {
+                   			 zAu.wrongValue_(this, 'Please select.....');
+                		} else {
+                   		 zAu.cmd0.clearWrongValue(this.uuid);
+                		}
+            		}
+        			]]></attribute>
+                  			
+                  			</listbox> 
+					</tablechildren>
+					<tablechildren>
+							<label value="PaymentBasis:"/>
+					</tablechildren>
+					<tablechildren>
+							<listbox id="selectType" mold="select"  model="${model}" xmlns:w="client" >
+							<attribute w:name="doBlur_"><![CDATA[
+           				 function(evt) {
+                		this.$doBlur_(evt);
+               			 if (this.$n().value == '') {
+                   			 zAu.wrongValue_(this, 'Please select.....');
+                		} else {
+                   		 zAu.cmd0.clearWrongValue(this.uuid);
+                		}
+            		}
+        			]]></attribute>
+						  <listitem label="Intrest" value= "Intrest" />
+                         		 <listitem label="EMI" value="EMI" /> 
+                  			</listbox> 
+					</tablechildren>
+					<tablechildren>
+							<label value="Tenure:"/>
+					</tablechildren>
+					<tablechildren> 
+							<textbox id="Tenure" readonly="true" constraint="no empty"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="Intrest:"/>
+					</tablechildren>
+					<tablechildren> 
+							<doublebox id="intrest" constraint="no empty" readonly="true"/>
+					</tablechildren>
+					<tablechildren>
+							<label value="loandate:"/>
+					</tablechildren>
+					<tablechildren>	
+							<datebox id="loandate" format="yyyy-MM-dd" constraint="no empty, no future: now or never" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Frequency of pay:"/>
+					</tablechildren>
+					<tablechildren>
+							<listbox id="Frequencyofpay" mold="select" model="${model}" xmlns:w="client"  >
+							<attribute w:name="doBlur_"><![CDATA[
+           				 function(evt) {
+                		this.$doBlur_(evt);
+               			 if (this.$n().value == '') {
+                   			 zAu.wrongValue_(this, 'Please select.....');
+                		} else {
+                   		 zAu.cmd0.clearWrongValue(this.uuid);
+                		}
+            		}
+        			]]></attribute>
+							
+                            	<listitem label="Daily" value= "Daily" />
+                          		<listitem label="Monthly" value="Monthly" />
+                            	<listitem label="Yearly" value="Yearly" />  
+                  			</listbox>  
+                     		 
+					</tablechildren>
+					<tablechildren>
+							<label value="RequestedAmount:"/>
+					</tablechildren>
+					<tablechildren>	
+							<doublebox id="RequestedAmount" constraint="no empty" />
+					</tablechildren>
+					
+					<tablechildren>
+							<label value="Available Amount:"/>
+					</tablechildren>
+					<tablechildren>	
+							<doublebox id="LendingRate"  constraint="no empty" />
+					</tablechildren>
+					<tablechildren>
+							<label value="Intrest Type:" />
+					</tablechildren>
+					<tablechildren>
+							<listbox id="intrest_type" mold="select" model="${model}" xmlns:w="client"  >
+							<attribute w:name="doBlur_"><![CDATA[
+           				 function(evt) {
+                		this.$doBlur_(evt);
+               			 if (this.$n().value == '') {
+                   			 zAu.wrongValue_(this, 'Please select.....');
+                		} else {
+                   		 zAu.cmd0.clearWrongValue(this.uuid);
+                		}
+            		}
+        			]]></attribute>
+                            	<listitem label="Flat" value="Flat" />
+                          		<listitem label="Double" value="Double" />
+                  			</listbox> 
+					</tablechildren>
+					<tablechildren>
+							<label value="ApprisalName:"/>
+					</tablechildren>
+					<tablechildren>	
+							<textbox id="ApprisalName"  constraint="no empty"/>
+					</tablechildren>
+ 		</tablelayout>          
+	</div>
+
+	<div>
+		<hlayout style="text-align:center;">
+		<hbox style="margin-left:139px;">
+		<button id="action_button" onClick="loan.submit(self.getLabel())"   label="Re Submit" style="line-height: 18px: width: 93px;"/>
+			 <button id="side_button" onClick="loan.submit(self.getLabel())" label="Save" style="line-height: 18px: width: 93px;"/>
+		</hbox>
+		</hlayout>
+	</div>
+</vlayout>
+<div id="listenerDiv" onShowNotification="@command('toallloans')" style="display:none" />
+<div id="listen" onShowNotification="@command('topendingloans')" style="display:none" />
+<script type="text/javascript">
+<![CDATA[   
+
+ function fireEventFromClient() {
+    zk.Widget.$('$listenerDiv').fire('onShowNotification', null, {toServer:true});
+ }
+function pendingloan(){
+	 zk.Widget.$('$listen').fire('onShowNotification', null, {toServer:true});
+}
+
+]]></script>
+</window>
+</zk>	

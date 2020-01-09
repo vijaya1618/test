@@ -1,0 +1,93 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style>
+.z-window{
+padding:0px;
+background:transparent;
+    
+}
+.z-window-content{
+background:transparent;
+}
+z-listbox-emptybody-content{
+color:white;
+font-size:20px;
+}
+.z-listbox {
+    border:1px solid #0a0a0a;
+    margin-top: 53px !important;
+}
+.z-listbox-header-border {
+    border-bottom: 1px solid #09090a;
+}
+
+.z-listheader{
+    background: #08080873;
+    border-left: 1px solid #1e1f1f;
+}
+.z-listbox-header{
+background: #0093f900;
+}
+.z-listbox-body {
+    background: #fff0;
+}
+.z-listitem .z-listcell{
+background:#0c0c0c00;
+}
+.z-listitem.z-listitem-selected.z-listitem-focus:hover>.z-listcell{
+background:white;
+}
+.z-listitem.z-listitem-selected.z-listitem-focus>.z-listcell{
+background:white;
+}
+.z-listitem.z-listitem-selected>.z-listcell {
+background:white;
+}
+.z-listitem:hover>.z-listcell{
+background: #6c7073a8;
+}
+.z-listitem.z-listitem-selected:hover>.z-listcell{
+    background: #6c7073a8;
+}
+
+</style>
+<window id="nominee"  border="none"
+        use="com.rahul.Nominee.NomineeController">
+        
+	<vlayout>
+	<vbox  style="text-align:center;margin: 0 auto"><label value="Nominee Details" style="font-size:25px;color:#ead983;font-family: Arial Black;background: #00000082;"/></vbox>
+	<hbox align="center">
+		<label value="Nominee Id:" style="color:black" />
+		<intbox id="nominee_id" />   
+		
+		<button id="searchButton" label="Search" iconSclass="z-icon-search" onClick="nominee.findcustomer(nominee_id.getValue())"/>
+		
+	</hbox>
+	<listbox id="nomineedetails" emptyMessage="No Customers Found" height="50%" style="margin-top:10px">
+	
+		<listhead>
+		    <listheader label="Nominee Id"/>
+		    <listheader label="Nominee Name"/>
+		    <listheader label="Customer Id"/>
+		    <listheader label="Customer Name"/>
+			<listheader label="Nominee Relation"/>
+			<listheader label="Nominee Age"/>
+			<listheader label="Nominee DOB"/>
+		</listhead>
+		<template name="model">
+            <listitem>
+                <listcell label="${each.nominee_id}"></listcell>
+                <listcell label="${each.nominee_name}"></listcell>
+                <listcell label="${each.custm_id}"></listcell>
+                <listcell label="${each.custm_name}" ></listcell>
+                <listcell label="${each.nominee_relation}"></listcell>
+                <listcell label="${each.nominee_age}"></listcell>
+                <listcell label="${each.nominee_dob}" ></listcell>
+            </listitem>
+        </template>
+
+	</listbox>
+	</vlayout>
+	
+	</window>
+</zk>

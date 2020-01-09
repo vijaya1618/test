@@ -1,0 +1,97 @@
+
+<zk>
+<style>
+.z-tablechildren {
+vertical-align: middle;
+}
+.z-tablelayout{
+		    width: 50%;
+    margin: 0 auto;
+    background: #1010106b;
+    margin-top: 76px;
+    border-radius: 31px;
+    padding: 10px;
+    height: 414px;
+}
+.nominee_form{
+    width: 75%;
+    margin: 0 auto;
+    background: transparent;
+    height: 100%;
+    
+}
+.body{
+width:100%;
+height:100%;
+}
+.z-textbox, .z-decimalbox, .z-intbox, .z-longbox, .z-doublebox, .z-select{
+    width: 180px;
+    height: 32px;
+    border-radius: 5px;
+}
+
+
+
+</style>
+<div class="body">
+		<div id="nominee" class="nominee_form" use="com.rahul.Nominee.NomineeController">
+		<label id="info" style="color:red" />
+		<tablelayout id="Nominee_details" columns="2">
+			<tablechildren colspan="2" style="text-align:center;height:30px;"><label  value="NOMINEE" style="font-size:21px;font-family:Arial Black;color:#ead983"/></tablechildren>
+		
+			<tablechildren>
+				<label value="CustomerId:" />
+			</tablechildren>
+			<tablechildren>	
+				<intbox id="customerId" constraint="no empty"></intbox>
+			</tablechildren>
+			
+			<tablechildren>
+					<label value="NomineeName:" />
+			</tablechildren>
+			<tablechildren>
+					<textbox id="nomineeName" constraint="no empty ,/^[a-zA-Z ]+$/ :please use alphabet"  />
+			</tablechildren>
+			
+			
+			<tablechildren>
+					<label value="NomineeRelation:"/>
+			</tablechildren>
+			<tablechildren>
+					<textbox id="nomineerelation" constraint="no empty,/^[a-zA-Z ]+$/ :please use alphabet" />
+			</tablechildren>
+			
+			<tablechildren>
+				<label value="NomineeAge:" />
+			</tablechildren>
+			<tablechildren>	
+				<intbox id="nomineeAge" constraint="no empty"></intbox>
+			</tablechildren>
+		
+			<tablechildren>
+				<label value="NomineeDOB" />
+			</tablechildren>
+			<tablechildren>	
+				<datebox id="nomineeDob" constraint="no empty, no future: now or never"></datebox>
+			</tablechildren>
+
+			<tablechildren colspan="2" style="text-align:center">
+			   		<button label="Submit" onClick="nominee.NomineeInsert()" style="line-height: 16px;"/>
+		     </tablechildren>
+		
+		</tablelayout>
+		<div id="listenerDiv" onShowNotification="@command('tonominee')" style="display:none" />
+
+		<script type="text/javascript">
+		<![CDATA[   
+
+ 		function fireEventFromClient() {
+  		  zk.Widget.$('$listenerDiv').fire('onShowNotification', null, {toServer:true});
+ 			}
+
+
+]]></script>
+		</div>
+</div>
+
+</zk>

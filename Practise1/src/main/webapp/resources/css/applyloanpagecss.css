@@ -1,0 +1,40 @@
+
+.z-window{
+padding:0px;
+background: transparent;
+}
+.z-window-content{
+background:transparent;
+padding:0px;
+height: 100% !important;
+}
+.z-vlayout {
+    padding: 7px;
+}
+.z-tablelayout{
+   width:100%;
+    margin: 0 auto;
+    margin-top: 23px;
+    background: transparent;
+    border-radius: 13px;
+    padding-bottom: 6px;
+}
+.z-textbox, .z-decimalbox, .z-intbox, .z-longbox, .z-doublebox,.z-datebox-input[readonly],.z-select {
+    width: 181px;
+    height: 34px;
+    border: 1px solid #d9d9d9;
+    border-radius: 0px;
+}
+.z-tablechildren {
+    vertical-align:middle;
+    padding: 6px;
+    }
+  tr{
+  text-align: center;
+  }
+  .eachtable{
+  width:800px;
+  background: #00000061;
+  border-radius: 13px;
+  margin: 0 auto;
+  }

@@ -1,0 +1,94 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style>
+.z-window{
+padding:0px;
+background:transparent;
+    
+}
+.z-window-content{
+background:transparent;
+}
+z-listbox-emptybody-content{
+color:white;
+font-size:20px;
+}
+.z-listbox {
+    border:1px solid #0a0a0a;
+    margin-top: 53px !important;
+}
+.z-listbox-header-border {
+    border-bottom: 1px solid #09090a;
+}
+
+.z-listheader{
+    background: #08080873;
+    border-left: 1px solid #1e1f1f;
+}
+.z-listbox-header{
+background: #0093f900;
+}
+.z-listbox-body {
+    background: #fff0;
+}
+.z-listitem .z-listcell{
+background:#0c0c0c00;
+}
+.z-listitem.z-listitem-selected.z-listitem-focus:hover>.z-listcell{
+background:white;
+}
+.z-listitem.z-listitem-selected.z-listitem-focus>.z-listcell{
+background:white;
+}
+.z-listitem.z-listitem-selected>.z-listcell {
+background:white;
+}
+.z-listitem:hover>.z-listcell{
+background: #6c7073a8;
+}
+.z-listitem.z-listitem-selected:hover>.z-listcell{
+    background: #6c7073a8;
+}
+
+</style>
+<window id="schemes"  border="none" use="com.rahul.schemes.All_Scheme_Controller" width="1110px">
+        
+	<vlayout>
+	<vbox  style="text-align:center;margin: 0 auto"><label value="SCHEMES" style="font-size:25px;color:#ead983;font-family: Arial Black;background: #00000082;"/></vbox>
+	<hbox align="center">
+		<label value="SCHEME NAME:" style="color:black;" />
+		<textbox id="scheme_name" />   
+		
+		<button id="searchButton" label="Search" iconSclass="z-icon-search" onClick="schemes.search(scheme_name.getValue())"/>
+		
+	</hbox>
+	<listbox id="scheme_list" emptyMessage="No Schemes Found"  style="margin-top:10px">
+	
+		<listhead>
+		    <listheader label="Scheme Id"/>
+		    <listheader label="Name" />
+			<listheader label="Product" />
+			<listheader label="Min Amount"/>
+			<listheader label="Max Amount" />
+			<listheader label="Applicable To" />
+			<listheader label="Loan Period" />
+			<listheader label="Edit"/>
+			
+		</listhead>
+		  <template name="model">
+            <listitem>
+                <listcell label="${each.scheme_id}"></listcell>
+                <listcell label="${each.scheme_name}"></listcell>
+                <listcell label="${each.scheme_product}"></listcell>
+                <listcell label="${each.scheme_min_ammount}"></listcell>
+                <listcell label="${each.scheme_max_ammount}"></listcell>
+                <listcell label="${each.scheme_aplicable_to}"></listcell>
+                <listcell label="${each.scheme_loan_period} Days"></listcell>
+                <listcell><button id="${each.scheme_id}" onClick="@command('edit_scheme',target=self.id)" iconSclass="z-icon-edit"/></listcell>
+				
+            </listitem>
+        </template>
+	</listbox>
+	</vlayout>
+	</window>
+</zk>

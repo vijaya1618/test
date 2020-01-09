@@ -1,0 +1,77 @@
+<zk>
+	<style>
+		.z-window{ padding:0px; background:transparent;
+
+		} .z-window-content{ background:transparent; }
+		z-listbox-emptybody-content{ color:white; font-size:20px; }
+		.z-listbox { border:1px solid #0a0a0a; margin-top: 53px
+		!important; } .z-listbox-header-border { border-bottom: 1px
+		solid #09090a; }
+
+		.z-listheader{ background: #08080873; border-left: 1px solid
+		#1e1f1f; } .z-listbox-header{ background: #0093f900; }
+		.z-listbox-body { background: #fff0; } .z-listitem .z-listcell{
+		background:#0c0c0c00; }
+		.z-listitem.z-listitem-selected.z-listitem-focus:hover>.z-listcell{
+		background:white; }
+		.z-listitem.z-listitem-selected.z-listitem-focus>.z-listcell{
+		background:white; } .z-listitem.z-listitem-selected>.z-listcell
+		{ background:white; } .z-listitem:hover>.z-listcell{ background:
+		#6c7073a8; } .z-listitem.z-listitem-selected:hover>.z-listcell{
+		background: #6c7073a8; }
+	.z-listheader-content ,.z-listcell-content{
+			font-size: 13px;
+	}
+	</style>
+	<window id="ploan"  border="none"
+		use="com.rahul.Loan.pendingloans_Controller">
+		<label value="Pennding Loans" style="font-size:25px;color:#ead983;font-family: Arial Black;margin-left: 36%;background: #00000082;"/>
+		<hbox align="center">
+			<label value="Loanid:" style="color:black"/>
+			<intbox id="loanbox" />
+
+			<button id="searchButton" label="Search"
+				iconSclass="z-icon-search" onClick="ploan.search()" />
+		</hbox>
+
+		<listbox id="loanlist" emptyMessage="No Loans Found"
+			style="margin-top:10px">
+			<listhead>
+		    <listheader label="Loan Id"/>
+		    <listheader label="Cust-Name"/>
+		    <listheader label="Nominee Name"/>
+			<listheader label="Item"/>
+			<listheader label="Item-Wt"/>
+			<listheader label="Item Amount"/>
+			<listheader label="Scheme"/>
+			<listheader label="Loan Amount"/>
+			<listheader label="Applied Date"/>
+			<listheader label="Status"/>
+			<listheader label="Edit"/>
+			
+		</listhead>
+		  <template name="model">
+            <listitem>
+                <listcell label="${each.loan_id}"></listcell>
+                <listcell label="${each.custmer_name}"></listcell>
+                <listcell label="${each.nominee_name}"></listcell>
+                <listcell label="${each.item_name}"></listcell>
+                <listcell label="${each.item_wt}"></listcell>
+                <listcell label="${each.item_total_amount}"></listcell>
+                <listcell label="${each.scheme_name}"></listcell>
+                 <listcell label="${each.avaliable_amount} Rs"></listcell>
+                 <listcell label="${each.aprvl_date} "></listcell>
+                 <listcell label="${each.status}"></listcell>
+					<listcell>
+						<button id="${each.loan_id}" style="width: 64px;"
+							onClick="@command('refresh',target=self.id)" iconSclass="z-icon-edit"  />
+					</listcell>
+				</listitem>
+			</template>
+		</listbox>
+		
+		
+		
+		
+	</window>
+</zk>
